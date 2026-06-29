@@ -1,2 +1,2 @@
 # lumath-certificate-app
-Proyecto para certificaciones de joyería para lumath joyería 
+Proyecto para certificaciones para lumath joyería 
