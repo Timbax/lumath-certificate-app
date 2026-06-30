@@ -1,75 +1,81 @@
-export default function PdfPreview({ data }) {
-  const { name, sku, category, price, manufacturer, model, description, dimensions, warranty, origin } = data
+const specFields = [
+  { label: 'Color', key: 'color' },
+  { label: 'Origen', key: 'origen' },
+  { label: 'Cantidad', key: 'cantidad' },
+  { label: 'Tipo', key: 'tipo' },
+  { label: 'N° de Gemas', key: 'numeroGemas' },
+  { label: 'Peso', key: 'peso' },
+  { label: 'Talla', key: 'talla' },
+  { label: 'Forma', key: 'forma' },
+]
+
+export default function PdfPreview({ data, productImage, logos }) {
+  const hasLogos = logos?.some(Boolean)
 
   return (
-    <div className="bg-white shadow-lg w-full aspect-[1/1.41] p-lg flex flex-col text-left relative overflow-hidden">
-      <div className="flex justify-between items-start border-b border-primary/20 pb-md mb-lg">
-        <div className="text-primary font-display text-headline-md tracking-tighter">EMERALD</div>
-        <div className="text-right">
-          <div className="font-label-md text-[10px] text-outline">PRODUCT DATA SHEET</div>
-          <div className="font-body-sm font-bold text-on-surface">{sku}</div>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-2 gap-md mb-lg">
-        <div className="space-y-sm">
-          <h1 className="font-headline-lg text-primary leading-tight">{name}</h1>
-          <p className="text-body-sm text-on-surface-variant leading-relaxed">{description}</p>
-        </div>
-        <div className="bg-surface-container h-48 rounded flex items-center justify-center border border-outline-variant/30">
-          <img
-            className="max-h-full max-w-full object-contain p-sm"
-            alt="Product"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7sKOjzMNHZNMrtb9sd8owWt92wztTWo1UORMGI6uaH5Nyn_nep_jgKaWAPhfYQ01n_luBRMHOczJNzSUTJ9r11Q0IKWmmx8PuBkqDPXEzv4wX_e6GTSPDgQEWYlP0_0VoRZVycoy1w8hSF7nHtQYNbTV2gfsEztiEcGvHYInw3SQTFg5-9Nfy42xvBCcDVBPwAKy3X3ItoI86bL1EoQjLD_H3IKunc67G-vT0ex7BPe3warW21ZU8"
-          />
-        </div>
-      </div>
-
-      <div className="grid grid-cols-3 gap-sm mb-lg">
-        <div className="bg-surface-container-low p-sm rounded border border-outline-variant/10">
-          <div className="font-label-md text-[9px] text-outline">MANUFACTURER</div>
-          <div className="font-body-sm font-bold">{manufacturer}</div>
-        </div>
-        <div className="bg-surface-container-low p-sm rounded border border-outline-variant/10">
-          <div className="font-label-md text-[9px] text-outline">MODEL</div>
-          <div className="font-body-sm font-bold">{model}</div>
-        </div>
-        <div className="bg-surface-container-low p-sm rounded border border-outline-variant/10">
-          <div className="font-label-md text-[9px] text-outline">PRICE</div>
-          <div className="font-body-sm font-bold text-secondary">{price}</div>
-        </div>
-      </div>
-
-      <div className="border-t border-outline-variant/30 pt-md">
-        <h4 className="font-label-md text-on-surface-variant mb-xs">TECHNICAL SPECIFICATIONS</h4>
-        <div className="grid grid-cols-2 gap-x-md gap-y-xs text-[11px]">
-          <div className="flex justify-between border-b border-outline-variant/10 py-1">
-            <span className="text-outline">Dimensiones</span>
-            <span className="font-bold text-right">{dimensions}</span>
+    <div className="bg-white shadow-lg w-full aspect-[1/1.41] flex flex-col text-left relative overflow-hidden font-sans">
+      <div className="px-lg pt-lg pb-md flex-grow flex flex-col">
+        <div className="flex justify-between items-start border-b border-emerald-200/60 pb-md mb-md">
+          <div>
+            <div className="text-emerald-700 font-bold text-xl tracking-tighter leading-none">LUMATH</div>
+            <div className="text-emerald-600 text-[10px] font-medium tracking-widest uppercase">Certificate</div>
           </div>
-          <div className="flex justify-between border-b border-outline-variant/10 py-1">
-            <span className="text-outline">Garantía</span>
-            <span className="font-bold text-right">{warranty}</span>
+          <div className="text-right">
+            <div className="font-semibold text-[9px] text-gray-400 uppercase tracking-wider">Product Data Sheet</div>
+            <div className="font-bold text-xs text-gray-700 mt-0.5">{data.id}</div>
           </div>
-          <div className="flex justify-between border-b border-outline-variant/10 py-1">
-            <span className="text-outline">Origen</span>
-            <span className="font-bold text-right">{origin}</span>
+        </div>
+
+        <div className="flex gap-md mb-md flex-grow">
+          <div className="flex-1 flex flex-col justify-center min-w-0">
+            <h1 className="text-lg font-bold text-emerald-800 leading-tight mb-1">{data.id}</h1>
+            <p className="text-[10px] text-gray-500 leading-relaxed line-clamp-4">{data.description}</p>
+            <div className="mt-auto pt-sm">
+              <div className="text-[9px] text-gray-400 font-medium uppercase tracking-wider mb-0.5">Consecutivo</div>
+              <div className="text-sm font-bold text-gray-800">{data.numeroConsecutivo}</div>
+            </div>
           </div>
-          <div className="flex justify-between border-b border-outline-variant/10 py-1">
-            <span className="text-outline">Categoría</span>
-            <span className="font-bold text-right">{category}</span>
+          <div className="w-44 h-44 bg-gray-50 rounded-md border border-gray-200 flex items-center justify-center flex-shrink-0 overflow-hidden">
+            {productImage ? (
+              <img src={productImage} className="max-h-full max-w-full object-contain p-sm" alt="Product" />
+            ) : (
+              <span className="material-symbols-outlined text-4xl text-gray-300">image</span>
+            )}
+          </div>
+        </div>
+
+        <div className="border-t border-gray-200 pt-md mb-md">
+          <h4 className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-sm">Technical Specifications</h4>
+          <div className="grid grid-cols-4 gap-x-sm gap-y-1">
+            {specFields.map((field) => (
+              <div key={field.key} className="border-b border-gray-100 py-1">
+                <div className="text-[8px] text-gray-400 uppercase tracking-wider">{field.label}</div>
+                <div className="text-[10px] font-semibold text-gray-800 truncate">{data[field.key]}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      <div className="mt-auto pt-lg flex items-center justify-between opacity-50 grayscale contrast-125">
-        <div className="flex gap-sm h-6">
-          <div className="w-12 h-6 bg-outline-variant/20 rounded" />
-          <div className="w-12 h-6 bg-outline-variant/20 rounded" />
-          <div className="w-12 h-6 bg-outline-variant/20 rounded" />
+      <div className="px-lg pb-lg pt-md border-t border-gray-100 flex items-center justify-between">
+        <div className="flex gap-sm items-center">
+          {logos?.map((logo, i) => (
+            <div key={i} className="w-14 h-8 bg-gray-50 rounded border border-gray-200 flex items-center justify-center overflow-hidden">
+              {logo ? (
+                <img src={logo} className="max-h-full max-w-full object-contain p-0.5" alt={`Logo ${i + 1}`} />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <span className="text-[8px] text-gray-300">Logo {i + 1}</span>
+                </div>
+              )}
+            </div>
+          ))}
+          {!hasLogos && (
+            <div className="text-[9px] text-gray-400 italic">No logos added</div>
+          )}
         </div>
-        <div className="text-[9px] text-outline italic">
-          Generated by Emerald Docs Premium PDF Engine
+        <div className="text-[8px] text-gray-400 italic text-right leading-tight">
+          Generated by<br />Lumath Docs Engine
         </div>
       </div>
     </div>

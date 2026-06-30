@@ -1,6 +1,27 @@
+import { forwardRef, useImperativeHandle, useCallback } from 'react'
+import { pdf } from '@react-pdf/renderer'
 import PdfPreview from './PdfPreview'
+import PdfDocument from './PdfDocument'
 
-export default function PreviewPanel({ data, showPreview }) {
+const PreviewPanel = forwardRef(function PreviewPanel({ data, productImage, logos, showPreview }, ref) {
+  const downloadPdf = useCallback(async () => {
+    const blob = await pdf(
+      <PdfDocument data={data} productImage={productImage} logos={logos} />
+    ).toBlob()
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = `lumath-${data.id || 'certificate'}.pdf`
+    document.body.appendChild(a)
+    a.click()
+    document.body.removeChild(a)
+    URL.revokeObjectURL(url)
+  }, [data, productImage, logos])
+
+  useImperativeHandle(ref, () => ({
+    downloadPdf,
+  }), [downloadPdf])
+
   return (
     <div className="lg:col-span-5">
       <div className="sticky top-[104px]">
@@ -25,11 +46,13 @@ export default function PreviewPanel({ data, showPreview }) {
 
           {showPreview && (
             <div className="w-full h-full flex flex-col animate-[fadeIn_0.4s_ease-out]">
-              <PdfPreview data={data} />
+              <PdfPreview data={data} productImage={productImage} logos={logos} />
             </div>
           )}
         </div>
       </div>
     </div>
   )
-}
+})
+
+export default PreviewPanel

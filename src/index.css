@@ -169,3 +169,13 @@
 body {
   margin: 0;
 }
+
+.py-xl {
+  padding-block-start: 30px;
+  padding-block-end: 30px;
+}
+
+.bg-primary {
+  color: #000000;
+  background-color: #41cf40;
+}
