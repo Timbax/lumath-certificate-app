@@ -3,7 +3,7 @@ import TopNavBar from "./components/TopNavBar";
 import ProductForm from "./components/ProductForm";
 import PreviewPanel from "./components/PreviewPanel";
 import Footer from "./components/Footer";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const defaultData = {
   id: "ID",
@@ -42,7 +42,6 @@ function App() {
     <>
       <TopNavBar />
       <main className="flex-grow py-xl px-sm">
-        <Analytics />
         <div className="max-w-container-max mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
             <ProductForm
@@ -61,6 +60,7 @@ function App() {
         </div>
       </main>
       <Footer />
+      <Analytics />
     </>
   );
 }
