@@ -179,3 +179,16 @@ body {
   color: #000000;
   background-color: #41cf40;
 }
+
+.logo {
+  width: 20%;
+  height: 20%;
+}
+
+#navbar {
+  background-color: #000000;
+}
+
+/* #footer {
+  background-color: #000000;
+} */

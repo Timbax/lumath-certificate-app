@@ -13,43 +13,36 @@ export default function PdfPreview({ data, productImage, logos }) {
   const hasLogos = logos?.some(Boolean)
 
   return (
-    <div className="bg-white shadow-lg w-full aspect-[1/1.41] flex flex-col text-left relative overflow-hidden font-sans">
-      <div className="px-lg pt-lg pb-md flex-grow flex flex-col">
-        <div className="flex justify-between items-start border-b border-emerald-200/60 pb-md mb-md">
-          <div>
-            <div className="text-emerald-700 font-bold text-xl tracking-tighter leading-none">LUMATH</div>
-            <div className="text-emerald-600 text-[10px] font-medium tracking-widest uppercase">Certificate</div>
+    <div className="bg-white shadow-lg w-full aspect-[1/1.41] flex flex-col font-sans overflow-hidden">
+      <div className="px-lg pt-lg pb-md flex-grow flex flex-col gap-sm">
+        <div className="flex justify-between items-center border-b border-emerald-200/60 pb-sm">
+          <div className="w-28 h-12 flex items-center">
+            <img src="/images/LogoCompleto.png" className="max-h-full max-w-full object-contain" alt="Logo" />
           </div>
           <div className="text-right">
             <div className="font-semibold text-[9px] text-gray-400 uppercase tracking-wider">Product Data Sheet</div>
-            <div className="font-bold text-xs text-gray-700 mt-0.5">{data.id}</div>
+            <div className="font-bold text-xs text-gray-700">{data.id}</div>
           </div>
         </div>
 
-        <div className="flex gap-md mb-md flex-grow">
-          <div className="flex-1 flex flex-col justify-center min-w-0">
-            <h1 className="text-lg font-bold text-emerald-800 leading-tight mb-1">{data.id}</h1>
-            <p className="text-[10px] text-gray-500 leading-relaxed line-clamp-4">{data.description}</p>
-            <div className="mt-auto pt-sm">
-              <div className="text-[9px] text-gray-400 font-medium uppercase tracking-wider mb-0.5">Consecutivo</div>
-              <div className="text-sm font-bold text-gray-800">{data.numeroConsecutivo}</div>
-            </div>
-          </div>
-          <div className="w-44 h-44 bg-gray-50 rounded-md border border-gray-200 flex items-center justify-center flex-shrink-0 overflow-hidden">
+        <div className="flex justify-center py-md">
+          <div className="w-56 h-56 bg-gray-50 rounded-md border border-gray-200 flex items-center justify-center overflow-hidden">
             {productImage ? (
               <img src={productImage} className="max-h-full max-w-full object-contain p-sm" alt="Product" />
             ) : (
-              <span className="material-symbols-outlined text-4xl text-gray-300">image</span>
+              <span className="material-symbols-outlined text-5xl text-gray-300">image</span>
             )}
           </div>
         </div>
 
-        <div className="border-t border-gray-200 pt-md mb-md">
-          <h4 className="text-[10px] font-semibold text-gray-500 uppercase tracking-wider mb-sm">Technical Specifications</h4>
-          <div className="grid grid-cols-4 gap-x-sm gap-y-1">
+        <p className="text-[10px] text-gray-500 leading-relaxed text-justify px-xs line-clamp-4">{data.description}</p>
+
+        <div className="border-t border-gray-200 pt-sm mt-auto">
+          <h4 className="text-[9px] font-semibold text-gray-500 uppercase tracking-wider mb-xs">Technical Specifications</h4>
+          <div className="grid grid-cols-4 gap-x-sm gap-y-0.5">
             {specFields.map((field) => (
-              <div key={field.key} className="border-b border-gray-100 py-1">
-                <div className="text-[8px] text-gray-400 uppercase tracking-wider">{field.label}</div>
+              <div key={field.key} className="border-b border-gray-100 py-0.5">
+                <div className="text-[7px] text-gray-400 uppercase tracking-wider">{field.label}</div>
                 <div className="text-[10px] font-semibold text-gray-800 truncate">{data[field.key]}</div>
               </div>
             ))}
@@ -57,26 +50,23 @@ export default function PdfPreview({ data, productImage, logos }) {
         </div>
       </div>
 
-      <div className="px-lg pb-lg pt-md border-t border-gray-100 flex items-center justify-between">
-        <div className="flex gap-sm items-center">
-          {logos?.map((logo, i) => (
-            <div key={i} className="w-14 h-8 bg-gray-50 rounded border border-gray-200 flex items-center justify-center overflow-hidden">
-              {logo ? (
-                <img src={logo} className="max-h-full max-w-full object-contain p-0.5" alt={`Logo ${i + 1}`} />
-              ) : (
-                <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-[8px] text-gray-300">Logo {i + 1}</span>
-                </div>
-              )}
-            </div>
-          ))}
-          {!hasLogos && (
-            <div className="text-[9px] text-gray-400 italic">No logos added</div>
-          )}
-        </div>
-        <div className="text-[8px] text-gray-400 italic text-right leading-tight">
-          Generated by<br />Lumath Docs Engine
-        </div>
+      <div className="px-lg py-md border-t border-gray-200 flex flex-col items-center gap-xs">
+        {hasLogos ? (
+          <div className="flex gap-md items-center justify-center">
+            {logos.map((logo, i) => (
+              <div key={i} className="w-16 h-9 bg-gray-50 rounded border border-gray-200 flex items-center justify-center overflow-hidden">
+                {logo ? (
+                  <img src={logo} className="max-h-full max-w-full object-contain p-0.5" alt={`Logo ${i + 1}`} />
+                ) : (
+                  <span className="text-[7px] text-gray-300">Logo {i + 1}</span>
+                )}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-[9px] text-gray-400 italic">No logos added</div>
+        )}
+        <div className="text-[7px] text-gray-300 italic">Generated by Lumath Docs Engine</div>
       </div>
     </div>
   )

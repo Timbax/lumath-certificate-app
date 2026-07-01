@@ -152,7 +152,7 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
           </div>
 
           <FormField
-            label="DESCRIPTION"
+            label="Descripción"
             type="textarea"
             placeholder="Resumen descriptivo del producto..."
             rows={3}
@@ -164,7 +164,7 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
           <div className="space-y-sm pt-sm">
             <div className="flex flex-col gap-base">
               <label className="font-label-md text-label-md text-on-surface-variant">
-                PRODUCT IMAGE
+                Imagen del producto 
               </label>
               <DropZone
                 icon="upload_file"
@@ -175,7 +175,7 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
             </div>
             <div className="flex flex-col gap-base">
               <label className="font-label-md text-label-md text-on-surface-variant">
-                ADDITIONAL LOGOS (HASTA 3)
+                Logos Adicionales (Hasta 3)
               </label>
               <div className="grid grid-cols-3 gap-sm">
                 <DropZone onFileSelect={(dataUrl) => handleLogoSelect(0, dataUrl)} />
