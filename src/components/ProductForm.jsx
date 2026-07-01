@@ -53,7 +53,7 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
           description: form.description || "Descripción no proporcionada.",
         },
         productImage,
-        logos
+        logos,
       );
       setLoading(false);
     }, 800);
@@ -164,7 +164,7 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
           <div className="space-y-sm pt-sm">
             <div className="flex flex-col gap-base">
               <label className="font-label-md text-label-md text-on-surface-variant">
-                Imagen del producto 
+                Imagen del producto
               </label>
               <DropZone
                 icon="upload_file"
@@ -178,9 +178,15 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
                 Logos Adicionales (Hasta 3)
               </label>
               <div className="grid grid-cols-3 gap-sm">
-                <DropZone onFileSelect={(dataUrl) => handleLogoSelect(0, dataUrl)} />
-                <DropZone onFileSelect={(dataUrl) => handleLogoSelect(1, dataUrl)} />
-                <DropZone onFileSelect={(dataUrl) => handleLogoSelect(2, dataUrl)} />
+                <DropZone
+                  onFileSelect={(dataUrl) => handleLogoSelect(0, dataUrl)}
+                />
+                <DropZone
+                  onFileSelect={(dataUrl) => handleLogoSelect(1, dataUrl)}
+                />
+                <DropZone
+                  onFileSelect={(dataUrl) => handleLogoSelect(2, dataUrl)}
+                />
               </div>
             </div>
           </div>
@@ -188,7 +194,7 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
           <div className="pt-lg flex items-center gap-md">
             <button
               type="button"
-              className="flex-grow bg-primary text-on-primary font-button text-button py-sm rounded-lg hover:opacity-90 active:scale-95 transition-all flex items-center justify-center gap-xs"
+              className="flex-grow bg-primary text-on-primary font-button text-button py-sm focus:ring-4 focus:ring-success-medium shadow-xs font-medium leading-5 rounded-full transition-all flex items-center justify-center gap-xs"
               onClick={handleGenerate}
               disabled={loading}
             >

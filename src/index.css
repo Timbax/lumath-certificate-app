@@ -54,7 +54,7 @@
   --radius-default: 0.125rem;
   --radius-lg: 0.25rem;
   --radius-xl: 0.5rem;
-  --radius-full: 0.75rem;
+  --radius-full: 1rem;
 
   --spacing-xs: 8px;
   --spacing-sm: 16px;
@@ -186,9 +186,18 @@ body {
 }
 
 #navbar {
-  background-color: #000000;
+  background-color: #2b2d2b;
+  text-align: center;
+}
+#footer {
+  background-color: #2b2d2b;
+  color: #f3d06f;
 }
 
-/* #footer {
-  background-color: #000000;
-} */
+#footer span {
+  color: #f3d06f;
+}
+
+#pdfBtn {
+  border-radius: var(--radius-full);
+}
