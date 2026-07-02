@@ -38,8 +38,8 @@ export default function PdfPreview({ data, productImage, logos }) {
           </div>
         </div>
 
-        <div className="flex justify-center py-md">
-          <div className="w-56 h-56 bg-gray-50 rounded-md border border-gray-200 flex items-center justify-center overflow-hidden">
+        <div className="flex justify-center py-sm">
+          <div className="w-40 h-40 bg-gray-50 rounded-md border border-gray-200 flex items-center justify-center overflow-hidden">
             {productImage ? (
               <img
                 src={productImage}
@@ -53,14 +53,16 @@ export default function PdfPreview({ data, productImage, logos }) {
             )}
           </div>
         </div>
-
+        <h4 className="text-[9px] font-semibold text-gray-500 uppercase tracking-wider mb-xs">
+          Descripción
+        </h4>
         <p className="text-[10px] text-gray-500 leading-relaxed text-justify px-xs line-clamp-4">
           {data.description}
         </p>
 
-        <div className="border-t border-gray-200 pt-sm mt-auto">
+        <div className="border-t border-gray-200 pt-sm">
           <h4 className="text-[9px] font-semibold text-gray-500 uppercase tracking-wider mb-xs">
-            Technical Specifications
+            Especificaciones técnicas
           </h4>
           <div className="grid grid-cols-4 gap-x-sm gap-y-0.5">
             {specFields.map((field) => (

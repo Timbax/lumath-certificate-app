@@ -22,6 +22,7 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
   const [loading, setLoading] = useState(false);
   const [productImage, setProductImage] = useState(null);
   const [logos, setLogos] = useState([null, null, null]);
+  const [dropzoneKey, setDropzoneKey] = useState(0);
   const [lastConsecutivo, setLastConsecutivo] = useState(() => {
     return localStorage.getItem("ultimoConsecutivo") || "";
   });
@@ -65,6 +66,10 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
         logos,
       );
       setLoading(false);
+      setForm(emptyForm);
+      setProductImage(null);
+      setLogos([null, null, null]);
+      setDropzoneKey((k) => k + 1);
     }, 800);
   }
 
@@ -218,6 +223,7 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
                 Imagen del Producto
               </h3>
               <DropZone
+                key={dropzoneKey}
                 icon="upload_file"
                 label="Haga clic o arrastre imagen principal"
                 heightClass="h-32"
@@ -230,12 +236,15 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
               </h3>
               <div className="grid grid-cols-3 gap-sm">
                 <DropZone
+                  key={`logo-0-${dropzoneKey}`}
                   onFileSelect={(dataUrl) => handleLogoSelect(0, dataUrl)}
                 />
                 <DropZone
+                  key={`logo-1-${dropzoneKey}`}
                   onFileSelect={(dataUrl) => handleLogoSelect(1, dataUrl)}
                 />
                 <DropZone
+                  key={`logo-2-${dropzoneKey}`}
                   onFileSelect={(dataUrl) => handleLogoSelect(2, dataUrl)}
                 />
               </div>

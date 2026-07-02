@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
   content: {
     flex: 1,
     flexDirection: "column",
-    gap: 12,
+    gap: 16,
   },
   header: {
     flexDirection: "row",
@@ -39,11 +39,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderBottomWidth: 1,
     borderBottomColor: "#a7d3b0",
-    paddingBottom: 12,
+    paddingBottom: 16,
   },
   headerLeft: {
-    width: 84,
-    height: 36,
+    width: 100,
+    height: 44,
     justifyContent: "center",
   },
   topLogo: {
@@ -76,14 +76,14 @@ const styles = StyleSheet.create({
   imageWrapper: {
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 18,
+    paddingVertical: 12,
   },
   productImageBox: {
-    width: 168,
-    height: 168,
+    width: 140,
+    height: 140,
     borderWidth: 1,
     borderColor: "#e5e7eb",
-    borderRadius: 4,
+    borderRadius: 6,
     backgroundColor: "#f9fafb",
     alignItems: "center",
     justifyContent: "center",
@@ -108,8 +108,7 @@ const styles = StyleSheet.create({
   specsSection: {
     borderTopWidth: 1,
     borderTopColor: "#e5e7eb",
-    paddingTop: 12,
-    marginTop: "auto",
+    paddingTop: 16,
   },
   specsTitle: {
     fontSize: 9,
@@ -145,20 +144,20 @@ const styles = StyleSheet.create({
   footer: {
     borderTopWidth: 1,
     borderTopColor: "#e5e7eb",
-    paddingTop: 18,
-    paddingBottom: 4,
+    paddingTop: 24,
+    paddingBottom: 24,
     alignItems: "center",
-    gap: 6,
+    gap: 8,
   },
   logosRow: {
     flexDirection: "row",
-    gap: 18,
+    gap: 24,
     alignItems: "center",
     justifyContent: "center",
   },
   logoBox: {
-    width: 48,
-    height: 27,
+    width: 56,
+    height: 32,
     borderWidth: 1,
     borderColor: "#e5e7eb",
     borderRadius: 3,
@@ -217,11 +216,11 @@ export default function PdfDocument({ data, productImage, logos }) {
               )}
             </View>
           </View>
-
+          <Text style={styles.specsTitle}>Descripción</Text>
           <Text style={styles.description}>{data.description}</Text>
 
           <View style={styles.specsSection}>
-            <Text style={styles.specsTitle}>Technical Specifications</Text>
+            <Text style={styles.specsTitle}>Especificaciones técnicas</Text>
             <View style={styles.specsGrid}>
               {specFields.map((field) => (
                 <View key={field.key} style={styles.specItem}>
