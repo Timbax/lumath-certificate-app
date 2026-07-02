@@ -65,15 +65,15 @@
   --spacing-container-max: 1280px;
   --spacing-gutter: 24px;
 
-  --font-body-lg: "Inter", sans-serif;
-  --font-display: "Inter", sans-serif;
-  --font-button: "Inter", sans-serif;
-  --font-headline-lg: "Inter", sans-serif;
-  --font-headline-md: "Inter", sans-serif;
-  --font-body-md: "Inter", sans-serif;
-  --font-headline-lg-mobile: "Inter", sans-serif;
-  --font-label-md: "Inter", sans-serif;
-  --font-body-sm: "Inter", sans-serif;
+  --font-body-lg: "Open Sans", sans-serif;
+  --font-display: "Open Sans", sans-serif;
+  --font-button: "Open Sans", sans-serif;
+  --font-headline-lg: "Open Sans", sans-serif;
+  --font-headline-md: "Open Sans", sans-serif;
+  --font-body-md: "Open Sans", sans-serif;
+  --font-headline-lg-mobile: "Open Sans", sans-serif;
+  --font-label-md: "Open Sans", sans-serif;
+  --font-body-sm: "Open Sans", sans-serif;
 
   --font-size-body-lg: 18px;
   --font-size-body-lg--line-height: 28px;
@@ -181,8 +181,8 @@ body {
 }
 
 .logo {
-  width: 20%;
-  height: 20%;
+  width: 30%;
+  height: 30%;
 }
 
 #navbar {
@@ -194,10 +194,29 @@ body {
   color: #f3d06f;
 }
 
+#copyright a {
+  color: #f3d06f;
+}
+
 #footer span {
   color: #f3d06f;
+  font-size: 13px;
 }
 
 #pdfBtn {
   border-radius: var(--radius-full);
+}
+
+.text-primary {
+  color: var(--color-primary);
+  size: 100%;
+}
+h2 {
+  font-weight: bolder;
+  font-size: 110%;
+}
+
+.w-auto {
+  width: auto;
+  margin-top: 15%;
 }
