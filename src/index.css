@@ -59,7 +59,7 @@
   --spacing-xs: 8px;
   --spacing-sm: 16px;
   --spacing-md: 24px;
-  --spacing-lg: 48px;
+  --spacing-lg: 40px;
   --spacing-xl: 80px;
   --spacing-base: 4px;
   --spacing-container-max: 1280px;
@@ -184,6 +184,9 @@ body {
   width: 30%;
   height: 30%;
 }
+#prodcutForm {
+  margin-top: 2%;
+}
 
 #navbar {
   background-color: #2b2d2b;
@@ -219,4 +222,19 @@ h2 {
 .w-auto {
   width: auto;
   margin-top: 15%;
+}
+
+.lastConsecutive {
+  margin-bottom: 3%;
+}
+
+.dataAttribute {
+  margin-bottom: 0%;
+}
+.dataIdentification {
+  margin-bottom: 0%;
+}
+
+.dataTechnical {
+  margin-bottom: 0%;
 }

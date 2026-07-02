@@ -5,6 +5,7 @@ import DropZone from "./DropZone";
 const emptyForm = {
   id: "",
   numeroConsecutivo: "",
+  fecha: "",
   color: "",
   origen: "",
   cantidad: "",
@@ -21,6 +22,9 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
   const [loading, setLoading] = useState(false);
   const [productImage, setProductImage] = useState(null);
   const [logos, setLogos] = useState([null, null, null]);
+  const [lastConsecutivo, setLastConsecutivo] = useState(() => {
+    return localStorage.getItem("ultimoConsecutivo") || "";
+  });
 
   function handleChange(e) {
     const { value, id } = e.target;
@@ -37,11 +41,16 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
 
   function handleGenerate() {
     setLoading(true);
+    if (form.numeroConsecutivo) {
+      localStorage.setItem("ultimoConsecutivo", form.numeroConsecutivo);
+      setLastConsecutivo(form.numeroConsecutivo);
+    }
     setTimeout(() => {
       onGenerate(
         {
           id: form.id || "ID",
           numeroConsecutivo: form.numeroConsecutivo || "N° de Consecutivo",
+          fecha: form.fecha || new Date().toISOString().split("T")[0],
           color: form.color || "Color",
           origen: form.origen || "Origen",
           cantidad: form.cantidad || "Cantidad",
@@ -71,86 +80,125 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
           </p>
         </div>
 
-        <form className="space-y-md" id="productForm">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
-            <FormField
-              label="Id"
-              placeholder="Ej: LJ-10001"
-              value={form.id}
-              onChange={handleChange}
-              id="id"
-            />
-            <FormField
-              label="Número de consecutivo"
-              placeholder="0001"
-              value={form.numeroConsecutivo}
-              onChange={handleChange}
-              id="numeroConsecutivo"
-            />
-            <FormField
-              label="Color"
-              placeholder="Verde Intenso"
-              value={form.color}
-              onChange={handleChange}
-              id="color"
-            />
-            <FormField
-              label="Origen"
-              placeholder="Muzo, Colombia"
-              value={form.origen}
-              onChange={handleChange}
-              id="origen"
-            />
-            <FormField
-              label="Cantidad"
-              placeholder="1"
-              value={form.cantidad}
-              onChange={handleChange}
-              id="cantidad"
-            />
-
-            <FormField
-              label="Tipo"
-              placeholder="Esmeralda Natural"
-              value={form.tipo}
-              onChange={handleChange}
-              id="tipo"
-            />
+        <form className="space-y-lg" id="productForm">
+          {/* Identificación */}
+          <div className="dataIdentification">
+            <h3 className="font-label-lg text-label-lg text-on-surface-variant mb-sm uppercase tracking-wider">
+              Identificación
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-md">
+              <FormField
+                label="Id"
+                placeholder="Ej: LJ-10001"
+                value={form.id}
+                onChange={handleChange}
+                id="id"
+              />
+              <div className="flex flex-col gap-xs">
+                <FormField
+                  label="Número de consecutivo"
+                  placeholder="0001"
+                  value={form.numeroConsecutivo}
+                  onChange={handleChange}
+                  id="numeroConsecutivo"
+                />
+                {lastConsecutivo && (
+                  <span className="text-[11px] text-on-surface-variant/70 px-sm">
+                    Último: <strong className="text-primary">{lastConsecutivo}</strong>
+                  </span>
+                )}
+              </div>
+              <FormField
+                label="Fecha"
+                type="date"
+                value={form.fecha}
+                onChange={handleChange}
+                id="fecha"
+              />
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
-            <FormField
-              label="Número de gemas"
-              placeholder="1"
-              value={form.numeroGemas}
-              onChange={handleChange}
-              id="numeroGemas"
-            />
-            <FormField
-              label="Peso"
-              placeholder="2.45 ct"
-              value={form.peso}
-              onChange={handleChange}
-              id="peso"
-            />
-            <FormField
-              label="Talla"
-              placeholder="Excelente"
-              rows={2}
-              value={form.talla}
-              onChange={handleChange}
-              id="talla"
-            />
+          <hr className="border-outline-variant/20" />
 
-            <FormField
-              label="Forma/Shape"
-              placeholder="Octagonal"
-              value={form.forma}
-              onChange={handleChange}
-              id="forma"
-            />
+          {/* Características */}
+          <div className="dataAttribute">
+            <h3 className="font-label-lg text-label-lg text-on-surface-variant mb-sm uppercase tracking-wider">
+              Características
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
+              <FormField
+                label="Color"
+                placeholder="Verde Intenso"
+                value={form.color}
+                onChange={handleChange}
+                id="color"
+              />
+              <FormField
+                label="Origen"
+                placeholder="Muzo, Colombia"
+                value={form.origen}
+                onChange={handleChange}
+                id="origen"
+              />
+              <FormField
+                label="Cantidad"
+                placeholder="1"
+                value={form.cantidad}
+                onChange={handleChange}
+                id="cantidad"
+              />
+              <FormField
+                label="Tipo"
+                placeholder="Esmeralda Natural"
+                value={form.tipo}
+                onChange={handleChange}
+                id="tipo"
+              />
+            </div>
           </div>
 
+          <hr className="border-outline-variant/20" />
+
+          {/* Detalles técnicos */}
+          <div className="dataTechnical">
+            <h3 className="font-label-lg text-label-lg text-on-surface-variant mb-sm uppercase tracking-wider">
+              Detalles Técnicos
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
+              <FormField
+                label="Número de gemas"
+                placeholder="1"
+                value={form.numeroGemas}
+                onChange={handleChange}
+                id="numeroGemas"
+              />
+              <FormField
+                label="Peso"
+                placeholder="2.45 ct"
+                value={form.peso}
+                onChange={handleChange}
+                id="peso"
+              />
+              <FormField
+                label="Talla"
+                placeholder="Excelente"
+                value={form.talla}
+                onChange={handleChange}
+                id="talla"
+              />
+              <FormField
+                label="Forma / Shape"
+                placeholder="Octagonal"
+                value={form.forma}
+                onChange={handleChange}
+                id="forma"
+              />
+            </div>
+          </div>
+
+          <hr className="border-outline-variant/20" />
+
+          {/* Descripción */}
           <FormField
             label="Descripción"
             type="textarea"
@@ -161,11 +209,14 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
             id="description"
           />
 
-          <div className="space-y-sm pt-sm">
+          <hr className="border-outline-variant/20" />
+
+          {/* Imágenes */}
+          <div className="space-y-md">
             <div className="flex flex-col gap-base">
-              <h2 className="font-headline-md text-headline-md text-primary mb-base">
-                Imagen del producto
-              </h2>
+              <h3 className="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">
+                Imagen del Producto
+              </h3>
               <DropZone
                 icon="upload_file"
                 label="Haga clic o arrastre imagen principal"
@@ -174,9 +225,9 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
               />
             </div>
             <div className="flex flex-col gap-base">
-              <h2 className="font-headline-md text-headline-md text-primary mb-base">
+              <h3 className="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">
                 Logos Adicionales (Hasta 3)
-              </h2>
+              </h3>
               <div className="grid grid-cols-3 gap-sm">
                 <DropZone
                   onFileSelect={(dataUrl) => handleLogoSelect(0, dataUrl)}
@@ -191,7 +242,8 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
             </div>
           </div>
 
-          <div className="pt-lg flex items-center gap-md">
+          {/* Botones */}
+          <div className="pt-md flex items-center gap-md">
             <button
               type="button"
               className="flex-grow bg-primary text-on-primary font-button text-button py-sm focus:ring-4 focus:ring-success-medium shadow-xs font-medium leading-5 rounded-full transition-all flex items-center justify-center gap-xs"

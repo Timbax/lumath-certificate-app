@@ -1,184 +1,197 @@
-import { Document, Page, View, Text, Image, StyleSheet } from '@react-pdf/renderer'
+import {
+  Document,
+  Page,
+  View,
+  Text,
+  Image,
+  StyleSheet,
+} from "@react-pdf/renderer";
 
 const specFields = [
-  { label: 'Color', key: 'color' },
-  { label: 'Origen', key: 'origen' },
-  { label: 'Cantidad', key: 'cantidad' },
-  { label: 'Tipo', key: 'tipo' },
-  { label: 'N° de Gemas', key: 'numeroGemas' },
-  { label: 'Peso', key: 'peso' },
-  { label: 'Talla', key: 'talla' },
-  { label: 'Forma', key: 'forma' },
-]
+  { label: "Color", key: "color" },
+  { label: "Origen", key: "origen" },
+  { label: "Cantidad", key: "cantidad" },
+  { label: "Tipo", key: "tipo" },
+  { label: "N° de Gemas", key: "numeroGemas" },
+  { label: "Peso", key: "peso" },
+  { label: "Talla", key: "talla" },
+  { label: "Forma", key: "forma" },
+];
 
 const styles = StyleSheet.create({
   page: {
     paddingHorizontal: 36,
     paddingTop: 36,
     paddingBottom: 24,
-    fontFamily: 'Helvetica',
+    fontFamily: "Helvetica",
     fontSize: 9,
-    color: '#333',
-    flexDirection: 'column',
+    color: "#333",
+    flexDirection: "column",
   },
   content: {
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: "column",
     gap: 12,
   },
   header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     borderBottomWidth: 1,
-    borderBottomColor: '#a7d3b0',
+    borderBottomColor: "#a7d3b0",
     paddingBottom: 12,
   },
   headerLeft: {
     width: 84,
     height: 36,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   topLogo: {
-    width: '100%',
-    height: '100%',
-    objectFit: 'contain',
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
   },
   headerRight: {},
   sheetLabel: {
     fontSize: 9,
-    color: '#9ca3af',
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
+    color: "#9ca3af",
+    fontWeight: "bold",
+    textTransform: "uppercase",
     letterSpacing: 1,
-    textAlign: 'right',
+    textAlign: "right",
   },
   idText: {
     fontSize: 10,
-    fontWeight: 'bold',
-    color: '#374151',
+    fontWeight: "bold",
+    color: "#374151",
     marginTop: 2,
-    textAlign: 'right',
+    textAlign: "right",
+  },
+  dateText: {
+    fontSize: 9,
+    color: "#6b7280",
+    marginTop: 2,
+    textAlign: "right",
   },
   imageWrapper: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     paddingVertical: 18,
   },
   productImageBox: {
     width: 168,
     height: 168,
     borderWidth: 1,
-    borderColor: '#e5e7eb',
+    borderColor: "#e5e7eb",
     borderRadius: 4,
-    backgroundColor: '#f9fafb',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
+    backgroundColor: "#f9fafb",
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "hidden",
   },
   productImage: {
-    maxWidth: '85%',
-    maxHeight: '85%',
-    objectFit: 'contain',
+    maxWidth: "85%",
+    maxHeight: "85%",
+    objectFit: "contain",
   },
   imagePlaceholder: {
-    color: '#d1d5db',
+    color: "#d1d5db",
     fontSize: 20,
   },
   description: {
     fontSize: 10,
-    color: '#6b7280',
+    color: "#6b7280",
     lineHeight: 1.6,
-    textAlign: 'justify',
+    textAlign: "justify",
     paddingHorizontal: 6,
   },
   specsSection: {
     borderTopWidth: 1,
-    borderTopColor: '#e5e7eb',
+    borderTopColor: "#e5e7eb",
     paddingTop: 12,
-    marginTop: 'auto',
+    marginTop: "auto",
   },
   specsTitle: {
     fontSize: 9,
-    fontWeight: 'bold',
-    color: '#6b7280',
-    textTransform: 'uppercase',
+    fontWeight: "bold",
+    color: "#6b7280",
+    textTransform: "uppercase",
     letterSpacing: 1,
     marginBottom: 6,
   },
   specsGrid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
   specItem: {
-    width: '25%',
+    width: "25%",
     borderBottomWidth: 1,
-    borderBottomColor: '#f3f4f6',
+    borderBottomColor: "#f3f4f6",
     paddingVertical: 2,
     paddingRight: 6,
   },
   specLabel: {
     fontSize: 7,
-    color: '#9ca3af',
-    textTransform: 'uppercase',
+    color: "#9ca3af",
+    textTransform: "uppercase",
     letterSpacing: 0.5,
     marginBottom: 1,
   },
   specValue: {
     fontSize: 10,
-    fontWeight: 'bold',
-    color: '#1f2937',
+    fontWeight: "bold",
+    color: "#1f2937",
   },
   footer: {
     borderTopWidth: 1,
-    borderTopColor: '#e5e7eb',
+    borderTopColor: "#e5e7eb",
     paddingTop: 18,
     paddingBottom: 4,
-    alignItems: 'center',
+    alignItems: "center",
     gap: 6,
   },
   logosRow: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 18,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   logoBox: {
     width: 48,
     height: 27,
     borderWidth: 1,
-    borderColor: '#e5e7eb',
+    borderColor: "#e5e7eb",
     borderRadius: 3,
-    backgroundColor: '#f9fafb',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'hidden',
+    backgroundColor: "#f9fafb",
+    alignItems: "center",
+    justifyContent: "center",
+    overflow: "hidden",
   },
   logoImage: {
-    maxWidth: '100%',
-    maxHeight: '100%',
-    objectFit: 'contain',
+    maxWidth: "100%",
+    maxHeight: "100%",
+    objectFit: "contain",
     padding: 1,
   },
   logoPlaceholder: {
     fontSize: 6,
-    color: '#d1d5db',
+    color: "#d1d5db",
   },
   noLogosText: {
     fontSize: 9,
-    color: '#9ca3af',
-    fontStyle: 'italic',
+    color: "#9ca3af",
+    fontStyle: "italic",
   },
   footerText: {
     fontSize: 7,
-    color: '#d1d5db',
-    fontStyle: 'italic',
-    textAlign: 'center',
+    color: "#d1d5db",
+    fontStyle: "italic",
+    textAlign: "center",
   },
-})
+});
 
 export default function PdfDocument({ data, productImage, logos }) {
-  const hasLogos = logos?.some(Boolean)
+  const hasLogos = logos?.some(Boolean);
 
   return (
     <Document>
@@ -186,11 +199,12 @@ export default function PdfDocument({ data, productImage, logos }) {
         <View style={styles.content}>
           <View style={styles.header}>
             <View style={styles.headerLeft}>
-              <Image style={styles.topLogo} src="/images/LogoCompleto.png" />
+              <Image style={styles.topLogo} src="/images/logo-NoBg.png" />
             </View>
             <View style={styles.headerRight}>
-              <Text style={styles.sheetLabel}>Product Data Sheet</Text>
-              <Text style={styles.idText}>{data.id}</Text>
+              <Text style={styles.sheetLabel}>Hoja de certificación</Text>
+              <Text style={styles.idText}>{data.numeroConsecutivo}</Text>
+              {data.fecha && <Text style={styles.dateText}>{data.fecha}</Text>}
             </View>
           </View>
 
@@ -235,9 +249,9 @@ export default function PdfDocument({ data, productImage, logos }) {
           ) : (
             <Text style={styles.noLogosText}>No logos added</Text>
           )}
-          <Text style={styles.footerText}>Generated by Lumath Docs Engine</Text>
+          <Text style={styles.footerText}>Certified by Lumath jewelers</Text>
         </View>
       </Page>
     </Document>
-  )
+  );
 }
