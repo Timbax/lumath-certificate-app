@@ -109,7 +109,8 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
                 />
                 {lastConsecutivo && (
                   <span className="text-[11px] text-on-surface-variant/70 px-sm">
-                    Último: <strong className="text-primary">{lastConsecutivo}</strong>
+                    Último:{" "}
+                    <strong className="text-primary">{lastConsecutivo}</strong>
                   </span>
                 )}
               </div>
