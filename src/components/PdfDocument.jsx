@@ -62,17 +62,20 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textTransform: "uppercase",
     letterSpacing: 0.5,
+    textAlign: "center",
   },
   consecutiveText: {
     fontSize: 11,
     fontWeight: "bold",
     color: "#374151",
     marginTop: 2,
+    textAlign: "center",
   },
   dateText: {
     fontSize: 8,
     color: "#6b7280",
     marginTop: 2,
+    textAlign: "center",
   },
   label: {
     fontSize: 6,
@@ -93,6 +96,7 @@ const styles = StyleSheet.create({
   coverPanel: {
     flex: 1,
     justifyContent: "space-between",
+    alignItems: "center",
   },
   coverTop: {
     gap: 4,
@@ -103,12 +107,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#1f2937",
     marginTop: 6,
+    textAlign: "center",
   },
   coverSubtitle: {
     fontSize: 8,
     color: "#6b7280",
     lineHeight: 1.5,
     marginTop: 2,
+    textAlign: "center",
   },
   coverBottom: {
     borderTopWidth: 0.5,
