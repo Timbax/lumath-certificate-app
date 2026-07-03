@@ -13,7 +13,7 @@ const specFields = [
 
 function ColumnHeader({ label }) {
   return (
-    <div className="text-[8px] font-semibold text-gray-400 uppercase tracking-wider text-center mb-1">
+    <div className="text-[8px] font-semibold text-gray-400 uppercase tracking-wider text-center mb-2">
       {label}
     </div>
   );
@@ -49,7 +49,7 @@ function PageOne({ data, productImage, logos }) {
             Reporte de análisis profesional para su gema certificada.
           </div>
         </div>
-        <div className="border-t border-gray-100 pt-2 mt-2">
+        <div className="border-t border-gray-100 pt-2 mt-2 w-full">
           {hasLogos ? (
             <div className="flex gap-2 items-center justify-center">
               {logos.map((logo, i) => (
@@ -110,20 +110,20 @@ function PageOne({ data, productImage, logos }) {
       <div className="col-divider" />
 
       {/* Column 3: Specs */}
-      <div className="brochure-col flex flex-col">
+      <div className="brochure-col flex flex-col items-center">
         <ColumnHeader label="Especificaciones" />
-        <div className="text-[7px] font-semibold text-gray-500 uppercase tracking-wider mb-1">
+        <div className="text-[7px] font-semibold text-gray-500 uppercase tracking-wider mb-1 text-center">
           Descripción
         </div>
-        <p className="text-[7px] text-gray-500 leading-relaxed text-justify line-clamp-4 mb-1">
+        <p className="text-[7px] text-gray-500 leading-relaxed text-justify line-clamp-4 mb-2 w-full">
           {data.description}
         </p>
-        <div className="text-[7px] font-semibold text-gray-500 uppercase tracking-wider mb-1">
+        <div className="text-[7px] font-semibold text-gray-500 uppercase tracking-wider mb-1 text-center">
           Especificaciones técnicas
         </div>
-        <div className="grid grid-cols-2 gap-x-1.5 gap-y-0.5">
+        <div className="grid grid-cols-2 gap-x-2 gap-y-1 w-full">
           {specFields.map((field) => (
-            <div key={field.key} className="border-b border-gray-100 py-0.5">
+            <div key={field.key} className="border-b border-gray-100 py-0.5 text-center">
               <div className="text-[5px] text-gray-400 uppercase tracking-wider">
                 {field.label}
               </div>
@@ -142,12 +142,12 @@ function PageTwo() {
   return (
     <div className="brochure-page bg-white shadow-md font-sans overflow-hidden flex">
       {/* Column 4: Terms Part 1 */}
-      <div className="brochure-col flex flex-col">
+      <div className="brochure-col flex flex-col items-center">
         <ColumnHeader label="Términos" />
-        <div className="text-[9px] font-bold text-gray-800 text-center mb-1.5">
+        <div className="text-[9px] font-bold text-gray-800 text-center mb-2">
           Información importante y limitaciones
         </div>
-        <div className="text-[6px] text-gray-600 leading-relaxed text-justify flex flex-col gap-1">
+        <div className="text-[6px] text-gray-600 leading-relaxed text-justify flex flex-col gap-1.5 w-full">
           <p>
             El Instituto Colombiano de Gemología (ICG), aporta su conocimiento
             técnico servicio de sus usuarios, realizando una revisión gemológica
@@ -176,9 +176,9 @@ function PageTwo() {
       <div className="col-divider" />
 
       {/* Column 5: Terms Part 2 */}
-      <div className="brochure-col flex flex-col">
+      <div className="brochure-col flex flex-col items-center">
         <ColumnHeader label="Términos" />
-        <div className="text-[6px] text-gray-600 leading-relaxed text-justify flex flex-col gap-1">
+        <div className="text-[6px] text-gray-600 leading-relaxed text-justify flex flex-col gap-1.5 w-full">
           <p>
             El Instituto Colombiano de Gemología (ICG) se reserva el uso de su
             imagen, los reportes, nombre, marcas y logotipos, los cuales
@@ -221,8 +221,8 @@ function PageTwo() {
       <div className="col-divider" />
 
       {/* Column 6: Contact */}
-      <div className="brochure-col flex flex-col justify-between">
-        <div>
+      <div className="brochure-col flex flex-col justify-between items-center text-center">
+        <div className="w-full">
           <ColumnHeader label="Contacto" />
           <div className="border-t border-gray-100 pt-2">
             <div className="text-[8px] font-bold text-gray-800 uppercase tracking-wide mb-1">
@@ -244,13 +244,13 @@ function PageTwo() {
           </div>
         </div>
 
-        <div className="border-t border-gray-100 pt-2 mt-2 flex flex-col items-center">
+        <div className="border-t border-gray-100 pt-2 mt-2 w-full flex flex-col items-center">
           <img
             src="/images/logo-NoBg.png"
             className="w-12 h-5 object-contain mb-0.5"
             alt="Logo"
           />
-          <div className="text-[6px] text-gray-400 font-semibold uppercase tracking-wider text-center">
+          <div className="text-[6px] text-gray-400 font-semibold uppercase tracking-wider">
             Nit 902073610-8
           </div>
         </div>
