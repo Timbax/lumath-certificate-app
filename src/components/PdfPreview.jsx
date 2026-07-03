@@ -239,13 +239,13 @@ function PageTwo() {
           </div>
         </div>
 
-        <div className="border-t border-gray-100 pt-2 mt-2">
+        <div className="border-t border-gray-100 pt-2 mt-2 flex flex-col items-center">
           <img
             src="/images/logo-NoBg.png"
             className="w-12 h-5 object-contain mb-0.5"
             alt="Logo"
           />
-          <div className="text-[6px] text-gray-400 font-semibold uppercase tracking-wider">
+          <div className="text-[6px] text-gray-400 font-semibold uppercase tracking-wider text-center">
             Nit 902073610-8
           </div>
         </div>

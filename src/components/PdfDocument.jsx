@@ -201,6 +201,7 @@ const styles = StyleSheet.create({
     borderTopColor: "#e5e7eb",
     paddingTop: 6,
     marginTop: 6,
+    alignItems: "center",
   },
   contactTitle: {
     fontSize: 8,
