@@ -135,21 +135,21 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   imageContainer: {
-    width: 130,
-    height: 130,
+    width: 160,
+    height: 160,
     alignItems: "center",
     justifyContent: "center",
   },
   circleBackground: {
-    width: 130,
-    height: 130,
+    width: 160,
+    height: 160,
     objectFit: "contain",
   },
   productImage: {
-    width: 80,
-    height: 80,
+    width: 90,
+    height: 90,
     objectFit: "contain",
-    marginTop: -130,
+    marginTop: -160,
   },
   imagePlaceholder: {
     color: "#d1d5db",
