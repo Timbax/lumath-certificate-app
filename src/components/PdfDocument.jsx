@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
   },
   coverTop: {
     gap: 4,
+    alignItems: "center",
   },
   coverTitle: {
     fontSize: 14,

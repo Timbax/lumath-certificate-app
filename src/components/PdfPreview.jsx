@@ -25,8 +25,8 @@ function PageOne({ data, productImage, logos }) {
   return (
     <div className="brochure-page bg-white shadow-md font-sans overflow-hidden flex">
       {/* Column 1: Cover */}
-      <div className="brochure-col flex flex-col justify-between">
-        <div>
+      <div className="brochure-col flex flex-col justify-between items-center text-center">
+        <div className="flex flex-col items-center">
           <ColumnHeader label="Portada" />
           <img
             src="/images/logo-NoBg.png"
