@@ -12,6 +12,9 @@ export default function DropZone({ icon = 'add', label, heightClass = 'h-20', on
       onFileSelect?.(e.target.result)
     }
     reader.readAsDataURL(file)
+    if (inputRef.current) {
+      inputRef.current.value = ''
+    }
   }
 
   function handleDrop(e) {
