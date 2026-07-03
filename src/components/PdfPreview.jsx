@@ -11,134 +11,138 @@ const specFields = [
   { label: "Forma", key: "forma" },
 ];
 
+function ColumnHeader({ label }) {
+  return (
+    <div className="text-[8px] font-semibold text-gray-400 uppercase tracking-wider text-center mb-1">
+      {label}
+    </div>
+  );
+}
+
 function PageOne({ data, productImage, logos }) {
   const hasLogos = logos?.some(Boolean);
 
   return (
-    <div className="bg-white shadow-lg w-full aspect-[1/1.41] flex flex-col font-sans overflow-hidden">
-      <div className="px-lg pt-lg pb-md flex-grow flex flex-col gap-sm">
-        <div className="flex justify-between items-center border-b border-emerald-200/60 pb-sm">
-          <div className="w-28 h-12 flex items-center">
-            <img
-              src="/images/logo-NoBg.png"
-              className="max-h-full max-w-full object-contain"
-              alt="Logo"
-            />
+    <div className="brochure-page bg-white shadow-md font-sans overflow-hidden flex">
+      {/* Column 1: Cover */}
+      <div className="brochure-col flex flex-col justify-between">
+        <div>
+          <ColumnHeader label="Portada" />
+          <img
+            src="/images/logo-NoBg.png"
+            className="w-16 h-7 object-contain mb-1"
+            alt="Logo"
+          />
+          <div className="text-[6px] text-gray-400 font-semibold uppercase tracking-wider">
+            Nit 902073610-8
           </div>
-          <div className="text-right">
-            <div className="font-semibold text-[9px] text-gray-400 uppercase tracking-wider">
-              Nit 902073610-8
-            </div>
-            <div className="font-bold text-xs text-gray-700">
-              {data.numeroConsecutivo}
-            </div>
-            {data.fecha && (
-              <div className="text-[9px] text-gray-500 mt-0.5">
-                {data.fecha}
-              </div>
-            )}
+          <div className="text-[10px] font-bold text-gray-700">
+            {data.numeroConsecutivo}
           </div>
-        </div>
-
-        <div className="flex justify-center py-sm">
-          <div className="w-40 h-40 bg-gray-50 rounded-md border border-gray-200 flex items-center justify-center overflow-hidden">
-            {productImage ? (
-              <img
-                src={productImage}
-                className="max-h-full max-w-full object-contain p-sm"
-                alt="Product"
-              />
-            ) : (
-              <span className="material-symbols-outlined text-5xl text-gray-300">
-                image
-              </span>
-            )}
+          {data.fecha && (
+            <div className="text-[7px] text-gray-500 mt-0.5">{data.fecha}</div>
+          )}
+          <div className="text-[11px] font-bold text-gray-800 mt-2">
+            Certificado Gemológico
+          </div>
+          <div className="text-[7px] text-gray-500 leading-relaxed mt-1">
+            Reporte de análisis profesional para su gema certificada.
           </div>
         </div>
-        <h4 className="text-[9px] font-semibold text-gray-500 uppercase tracking-wider mb-xs">
-          Descripción
-        </h4>
-        <p className="text-[10px] text-gray-500 leading-relaxed text-justify px-xs line-clamp-4">
-          {data.description}
-        </p>
-
-        <div className="border-t border-gray-200 pt-sm">
-          <h4 className="text-[9px] font-semibold text-gray-500 uppercase tracking-wider mb-xs">
-            Especificaciones técnicas
-          </h4>
-          <div className="grid grid-cols-4 gap-x-sm gap-y-0.5">
-            {specFields.map((field) => (
-              <div key={field.key} className="border-b border-gray-100 py-0.5">
-                <div className="text-[7px] text-gray-400 uppercase tracking-wider">
-                  {field.label}
+        <div className="border-t border-gray-100 pt-2 mt-2">
+          {hasLogos ? (
+            <div className="flex gap-2 items-center justify-center">
+              {logos.map((logo, i) => (
+                <div
+                  key={i}
+                  className="w-9 h-5 bg-gray-50 rounded border border-gray-200 flex items-center justify-center overflow-hidden"
+                >
+                  {logo ? (
+                    <img
+                      src={logo}
+                      className="max-h-full max-w-full object-contain p-0.5"
+                      alt={`Logo ${i + 1}`}
+                    />
+                  ) : (
+                    <span className="text-[5px] text-gray-300">
+                      Logo {i + 1}
+                    </span>
+                  )}
                 </div>
-                <div className="text-[10px] font-semibold text-gray-800 truncate">
-                  {data[field.key]}
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          ) : (
+            <div className="text-[6px] text-gray-400 italic text-center">
+              No logos added
+            </div>
+          )}
+          <div className="text-[5px] text-gray-300 italic text-center mt-1">
+            Certified by Lumath jewelers
           </div>
         </div>
       </div>
 
-      <div className="px-lg py-md border-t border-gray-200 flex flex-col items-center gap-xs">
-        {hasLogos ? (
-          <div className="flex gap-md items-center justify-center">
-            {logos.map((logo, i) => (
-              <div
-                key={i}
-                className="w-16 h-9 bg-gray-50 rounded border border-gray-200 flex items-center justify-center overflow-hidden"
-              >
-                {logo ? (
-                  <img
-                    src={logo}
-                    className="max-h-full max-w-full object-contain p-0.5"
-                    alt={`Logo ${i + 1}`}
-                  />
-                ) : (
-                  <span className="text-[7px] text-gray-300">Logo {i + 1}</span>
-                )}
+      <div className="col-divider" />
+
+      {/* Column 2: Image */}
+      <div className="brochure-col flex flex-col items-center justify-center">
+        <ColumnHeader label="Imagen" />
+        <div className="w-28 h-28 bg-gray-50 rounded-md border border-gray-200 flex items-center justify-center overflow-hidden">
+          {productImage ? (
+            <img
+              src={productImage}
+              className="max-h-full max-w-full object-contain p-1.5"
+              alt="Product"
+            />
+          ) : (
+            <span className="material-symbols-outlined text-3xl text-gray-300">
+              image
+            </span>
+          )}
+        </div>
+      </div>
+
+      <div className="col-divider" />
+
+      {/* Column 3: Specs */}
+      <div className="brochure-col flex flex-col">
+        <ColumnHeader label="Especificaciones" />
+        <div className="text-[7px] font-semibold text-gray-500 uppercase tracking-wider mb-1">
+          Descripción
+        </div>
+        <p className="text-[7px] text-gray-500 leading-relaxed text-justify line-clamp-4 mb-1">
+          {data.description}
+        </p>
+        <div className="text-[7px] font-semibold text-gray-500 uppercase tracking-wider mb-1">
+          Especificaciones técnicas
+        </div>
+        <div className="grid grid-cols-2 gap-x-1.5 gap-y-0.5">
+          {specFields.map((field) => (
+            <div key={field.key} className="border-b border-gray-100 py-0.5">
+              <div className="text-[5px] text-gray-400 uppercase tracking-wider">
+                {field.label}
               </div>
-            ))}
-          </div>
-        ) : (
-          <div className="text-[9px] text-gray-400 italic">No logos added</div>
-        )}
-        <div className="text-[7px] text-gray-300 italic">
-          Certified by Lumath jewelers
+              <div className="text-[7px] font-semibold text-gray-800 truncate">
+                {data[field.key]}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
   );
 }
 
-function PageTwo({ data }) {
+function PageTwo() {
   return (
-    <div className="bg-white shadow-lg w-full aspect-[1/1.41] flex flex-col font-sans overflow-hidden">
-      <div className="px-lg pt-lg pb-md flex-grow flex flex-col">
-        <div className="flex justify-between items-center border-b border-emerald-200/60 pb-sm mb-4">
-          <div className="w-24 h-10 flex items-center">
-            <img
-              src="/images/logo-NoBg.png"
-              className="max-h-full max-w-full object-contain"
-              alt="Logo"
-            />
-          </div>
-          <div className="text-right">
-            <div className="font-semibold text-[9px] text-gray-400 uppercase tracking-wider">
-              Nit 902073610-8
-            </div>
-            <div className="font-bold text-[11px] text-gray-700">
-              {data.numeroConsecutivo}
-            </div>
-          </div>
-        </div>
-
-        <h3 className="text-[13px] font-bold text-gray-800 mb-3">
+    <div className="brochure-page bg-white shadow-md font-sans overflow-hidden flex">
+      {/* Column 4: Terms Part 1 */}
+      <div className="brochure-col flex flex-col">
+        <ColumnHeader label="Términos" />
+        <div className="text-[9px] font-bold text-gray-800 text-center mb-1.5">
           Información importante y limitaciones
-        </h3>
-
-        <div className="flex flex-col gap-2.5 text-[9px] text-gray-600 leading-relaxed text-justify">
+        </div>
+        <div className="text-[6px] text-gray-600 leading-relaxed text-justify flex flex-col gap-1">
           <p>
             El Instituto Colombiano de Gemología (ICG), aporta su conocimiento
             técnico servicio de sus usuarios, realizando una revisión gemológica
@@ -161,6 +165,15 @@ function PageTwo({ data }) {
             adulteraciones causadas a la gema de manera provocada, natural, o
             accidental posterior a la expedición.
           </p>
+        </div>
+      </div>
+
+      <div className="col-divider" />
+
+      {/* Column 5: Terms Part 2 */}
+      <div className="brochure-col flex flex-col">
+        <ColumnHeader label="Términos" />
+        <div className="text-[6px] text-gray-600 leading-relaxed text-justify flex flex-col gap-1">
           <p>
             El Instituto Colombiano de Gemología (ICG) se reserva el uso de su
             imagen, los reportes, nombre, marcas y logotipos, los cuales
@@ -198,23 +211,46 @@ function PageTwo({ data }) {
             criterios distintos a los aplicados en el análisis.
           </p>
         </div>
+      </div>
 
-        <div className="border-t border-gray-200 pt-3 mt-4">
-          <h4 className="text-[10px] font-bold text-gray-800 uppercase tracking-wide mb-1.5">
-            GEMOLOGICAL REPORT / REPORTE GEMOLÓGICO
-          </h4>
-          <div className="text-[9px] text-gray-500 leading-relaxed">
-            <p>
-              Avd. Jiménez No 7-25 Ofic. 609 y 801 Edificio Henry Faux - Bogotá,
-              Colombia
-            </p>
-            <p>Tel: (57)(601) 478 7272</p>
-            <p>Cel: (57) 321 450 6410</p>
-            <p>info@icgemlab.com - www.icgemlab.com</p>
+      <div className="col-divider" />
+
+      {/* Column 6: Contact */}
+      <div className="brochure-col flex flex-col justify-between">
+        <div>
+          <ColumnHeader label="Contacto" />
+          <div className="border-t border-gray-100 pt-2">
+            <div className="text-[8px] font-bold text-gray-800 uppercase tracking-wide mb-1">
+              Gemological Report
+            </div>
+            <div className="text-[8px] font-bold text-gray-800 uppercase tracking-wide mb-1.5">
+              Reporte Gemológico
+            </div>
+            <div className="text-[7px] text-gray-500 leading-relaxed">
+              <p>
+                Avd. Jiménez No 7-25 Ofic. 609 y 801 Edificio Henry Faux -
+                Bogotá, Colombia
+              </p>
+              <p>Tel: (57)(601) 478 7272</p>
+              <p>Cel: (57) 321 450 6410</p>
+              <p>info@icgemlab.com</p>
+              <p>www.icgemlab.com</p>
+            </div>
           </div>
         </div>
 
-        <p className="text-[8px] text-gray-400 italic mt-auto pt-4 text-center leading-relaxed">
+        <div className="border-t border-gray-100 pt-2 mt-2">
+          <img
+            src="/images/logo-NoBg.png"
+            className="w-12 h-5 object-contain mb-0.5"
+            alt="Logo"
+          />
+          <div className="text-[6px] text-gray-400 font-semibold uppercase tracking-wider">
+            Nit 902073610-8
+          </div>
+        </div>
+
+        <p className="text-[5px] text-gray-400 italic text-center leading-relaxed mt-2">
           ICG Instituto Colombiano de Gemología. Reporte gemológico emitido por
           el ICG. Este documento es de uso exclusivo del propietario o tenedor
           legítimo de la gema descrita.
@@ -230,30 +266,30 @@ export default function PdfPreview({ data, productImage, logos }) {
   const [currentPage, setCurrentPage] = useState(1);
 
   return (
-    <div className="flex flex-col w-full">
+    <div className="flex flex-col w-full items-center">
       {currentPage === 1 ? (
         <PageOne data={data} productImage={productImage} logos={logos} />
       ) : (
         <PageTwo data={data} />
       )}
 
-      <div className="flex items-center justify-center gap-md mt-4">
+      <div className="flex items-center justify-center gap-3 mt-3">
         <button
           onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
           disabled={currentPage === 1}
-          className="w-8 h-8 rounded-full border border-gray-300 bg-white flex items-center justify-center text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          className="w-7 h-7 rounded-full border border-gray-300 bg-white flex items-center justify-center text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
         >
-          <span className="material-symbols-outlined text-[18px]">
+          <span className="material-symbols-outlined text-[16px]">
             chevron_left
           </span>
         </button>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5">
           {Array.from({ length: TOTAL_PAGES }, (_, i) => i + 1).map((page) => (
             <button
               key={page}
               onClick={() => setCurrentPage(page)}
-              className={`w-2.5 h-2.5 rounded-full transition-colors ${
+              className={`w-2 h-2 rounded-full transition-colors ${
                 currentPage === page
                   ? "bg-gray-700"
                   : "bg-gray-300 hover:bg-gray-400"
@@ -265,15 +301,23 @@ export default function PdfPreview({ data, productImage, logos }) {
         <button
           onClick={() => setCurrentPage((p) => Math.min(TOTAL_PAGES, p + 1))}
           disabled={currentPage === TOTAL_PAGES}
-          className="w-8 h-8 rounded-full border border-gray-300 bg-white flex items-center justify-center text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+          className="w-7 h-7 rounded-full border border-gray-300 bg-white flex items-center justify-center text-gray-600 hover:bg-gray-100 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
         >
-          <span className="material-symbols-outlined text-[18px]">
+          <span className="material-symbols-outlined text-[16px]">
             chevron_right
           </span>
         </button>
 
-        <span className="text-[11px] text-gray-500 ml-2">
+        <span className="text-[10px] text-gray-500 ml-1">
           {currentPage} / {TOTAL_PAGES}
+        </span>
+      </div>
+
+      <div className="mt-2 text-center">
+        <span className="text-[9px] text-gray-400 italic">
+          {currentPage === 1
+            ? "Frente — Portada | Imagen | Especificaciones"
+            : "Reverso — Términos | Términos | Contacto"}
         </span>
       </div>
     </div>
