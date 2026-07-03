@@ -134,20 +134,23 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  productImageBox: {
+  imageContainer: {
     width: 130,
     height: 130,
-    borderWidth: 1,
-    borderColor: "#e5e7eb",
-    borderRadius: 6,
-    backgroundColor: "#f9fafb",
     alignItems: "center",
     justifyContent: "center",
-    overflow: "hidden",
+  },
+  circleBackground: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    objectFit: "contain",
   },
   productImage: {
-    maxWidth: "85%",
-    maxHeight: "85%",
+    maxWidth: 80,
+    maxHeight: 80,
     objectFit: "contain",
   },
   imagePlaceholder: {
@@ -307,7 +310,11 @@ export default function PdfDocument({ data, productImage, logos }) {
         {/* Column 2: Product Image */}
         <View style={[styles.column, styles.imagePanel]}>
           <Text style={styles.columnHeader}>Imagen</Text>
-          <View style={styles.productImageBox}>
+          <View style={styles.imageContainer}>
+            <Image
+              style={styles.circleBackground}
+              src="/images/circulo_verde.png"
+            />
             {productImage ? (
               <Image style={styles.productImage} src={productImage} />
             ) : (
