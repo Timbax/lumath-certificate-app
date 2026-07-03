@@ -141,17 +141,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   circleBackground: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
+    width: 130,
+    height: 130,
     objectFit: "contain",
   },
   productImage: {
-    maxWidth: 80,
-    maxHeight: 80,
+    width: 80,
+    height: 80,
     objectFit: "contain",
+    marginTop: -130,
   },
   imagePlaceholder: {
     color: "#d1d5db",
@@ -315,10 +313,8 @@ export default function PdfDocument({ data, productImage, logos }) {
               style={styles.circleBackground}
               src="/images/circulo_verde.png"
             />
-            {productImage ? (
+            {productImage && (
               <Image style={styles.productImage} src={productImage} />
-            ) : (
-              <Text style={styles.imagePlaceholder}>No Image</Text>
             )}
           </View>
         </View>
