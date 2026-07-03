@@ -87,7 +87,7 @@ function PageOne({ data, productImage, logos }) {
       {/* Column 2: Image */}
       <div className="brochure-col flex flex-col items-center justify-center">
         <ColumnHeader label="Imagen" />
-        <div className="relative w-40 h-40 flex items-center justify-center">
+        <div className="relative w-48 h-48 flex items-center justify-center">
           <img
             src="/images/circulo_verde.png"
             className="absolute inset-0 w-full h-full object-contain"
@@ -96,7 +96,7 @@ function PageOne({ data, productImage, logos }) {
           {productImage ? (
             <img
               src={productImage}
-              className="relative z-10 max-h-24 max-w-24 object-contain"
+              className="relative z-10 max-h-28 max-w-28 object-contain"
               alt="Product"
             />
           ) : (
