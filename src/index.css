@@ -243,3 +243,81 @@ h2 {
 .dataTechnical {
   margin-bottom: 0%;
 }
+
+/* Tri-fold Brochure Styles */
+.brochure-page {
+  aspect-ratio: 1.41 / 1;
+  width: 100%;
+  max-width: 740px;
+  border-radius: 4px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.brochure-page:hover {
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.12),
+    0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.brochure-col {
+  flex: 1;
+  padding: 10px 8px;
+  min-width: 0;
+}
+
+.col-divider {
+  width: 0;
+  border-left: 1px dashed #d1d5db;
+  opacity: 0.5;
+}
+
+.fold-line {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  flex-shrink: 0;
+  gap: 4px;
+}
+
+.fold-line-dashed {
+  flex: 1;
+  width: 0;
+  border-left: 1.5px dashed #9ca3af;
+  opacity: 0.4;
+}
+
+.fold-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .brochure-page {
+    flex-direction: column;
+    aspect-ratio: 1 / 2.1;
+    max-width: 260px;
+  }
+
+  .brochure-col {
+    padding: 8px 10px;
+  }
+
+  .col-divider {
+    width: 100%;
+    height: 0;
+    border-left: none;
+    border-top: 1px dashed #d1d5db;
+  }
+}

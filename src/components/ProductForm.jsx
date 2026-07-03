@@ -74,7 +74,7 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
   }
 
   return (
-    <div className="lg:col-span-7">
+    <div className="lg:col-span-5">
       <div className="bg-surface-container-lowest rounded-xl shadow-[0px_2px_4px_rgba(4,99,7,0.05)] p-lg border border-outline-variant/30">
         <div className="mb-lg">
           <h2 className="font-headline-md text-headline-md text-primary mb-base">
@@ -91,7 +91,7 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
             <h3 className="font-label-lg text-label-lg text-on-surface-variant mb-sm uppercase tracking-wider">
               Identificación
             </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-md">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
               <FormField
                 label="Id"
                 placeholder="Ej: LJ-10001"
@@ -114,14 +114,14 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
                   </span>
                 )}
               </div>
-              <FormField
-                label="Fecha"
-                type="date"
-                value={form.fecha}
-                onChange={handleChange}
-                id="fecha"
-              />
             </div>
+            <FormField
+              label="Fecha"
+              type="date"
+              value={form.fecha}
+              onChange={handleChange}
+              id="fecha"
+            />
           </div>
 
           <hr className="border-outline-variant/20" />

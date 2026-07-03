@@ -30,10 +30,10 @@ const PreviewPanel = forwardRef(function PreviewPanel(
   );
 
   return (
-    <div className="lg:col-span-5">
+    <div className="lg:col-span-7">
       <div className="sticky top-[104px]">
         <div
-          className={`rounded-xl border border-outline-variant/30 min-h-[700px] flex flex-col items-center justify-center p-md text-center transition-all ${
+          className={`rounded-xl border border-outline-variant/30 min-h-[400px] flex flex-col items-center justify-center p-sm text-center transition-all ${
             showPreview ? "bg-[#EAEAEA]" : "bg-surface-container-low"
           }`}
         >
@@ -55,7 +55,7 @@ const PreviewPanel = forwardRef(function PreviewPanel(
           )}
 
           {showPreview && (
-            <div className="w-full h-full flex flex-col animate-[fadeIn_0.4s_ease-out]">
+            <div className="w-full flex flex-col items-center animate-[fadeIn_0.4s_ease-out]">
               <PdfPreview
                 data={data}
                 productImage={productImage}
