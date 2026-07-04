@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     letterSpacing: 1,
     textAlign: "center",
-    marginBottom: 8,
+    marginBottom: 3,
   },
 
   /* --- Common --- */
@@ -103,6 +103,7 @@ const styles = StyleSheet.create({
   coverTop: {
     gap: 4,
     alignItems: "center",
+    marginTop: 150,
   },
   coverTitle: {
     fontSize: 14,
@@ -143,6 +144,7 @@ const styles = StyleSheet.create({
     height: 200,
     alignItems: "center",
     justifyContent: "center",
+    marginBottom: 160,
   },
   circleBackground: {
     width: 300,
@@ -162,6 +164,7 @@ const styles = StyleSheet.create({
     flex: 1,
     gap: 3,
     alignItems: "center",
+    justifyContent: "center",
   },
   specGrid: {
     flexDirection: "row",
@@ -324,7 +327,7 @@ export default function PdfDocument({ data, productImage, logos }) {
 
         {/* Column 2: Product Image */}
         <View style={[styles.column, styles.imagePanel]}>
-          <Text style={styles.columnHeader}>Imagen</Text>
+          <Text style={styles.columnHeader}>Imagen Del Producto</Text>
           <View style={styles.imageContainer}>
             <Image
               style={styles.circleBackground}
@@ -344,7 +347,9 @@ export default function PdfDocument({ data, productImage, logos }) {
           <Text style={[styles.label, { fontSize: 7, marginBottom: 2 }]}>
             Descripción
           </Text>
-          <Text style={[styles.bodyText, { width: "100%" }]}>{data.description}</Text>
+          <Text style={[styles.bodyText, { width: "100%" }]}>
+            {data.description}
+          </Text>
 
           <Text style={[styles.label, { fontSize: 7, marginBottom: 2 }]}>
             Especificaciones técnicas
@@ -445,8 +450,8 @@ export default function PdfDocument({ data, productImage, logos }) {
               <Text style={styles.contactTitle}>Gemological Report</Text>
               <Text style={styles.contactTitle}>Reporte Gemológico</Text>
               <Text style={styles.contactText}>
-                Avd. Jiménez No 7-25 Ofic. 609 y 801 Edificio Henry Faux - Bogotá,
-                Colombia
+                Avd. Jiménez No 7-25 Ofic. 609 y 801 Edificio Henry Faux -
+                Bogotá, Colombia
               </Text>
               <Text style={styles.contactText}>Tel: (57)(601) 478 7272</Text>
               <Text style={styles.contactText}>Cel: (57) 321 450 6410</Text>
