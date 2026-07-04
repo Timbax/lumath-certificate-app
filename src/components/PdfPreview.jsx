@@ -13,7 +13,7 @@ const specFields = [
 
 function ColumnHeader({ label }) {
   return (
-    <div className="text-[8px] font-semibold text-gray-400 uppercase tracking-wider text-center mb-1">
+    <div className="text-[8px] font-bold text-gray-400 uppercase tracking-[1px] text-center mb-[3px]">
       {label}
     </div>
   );
@@ -25,37 +25,37 @@ function PageOne({ data, productImage, logos }) {
   return (
     <div className="brochure-page bg-white shadow-md font-sans overflow-hidden flex">
       {/* Column 1: Cover */}
-      <div className="brochure-col flex flex-col justify-between">
-        <div>
+      <div className="brochure-col flex flex-col justify-between items-center text-center">
+        <div className="flex flex-col items-center mt-[150px] gap-1">
           <ColumnHeader label="Portada" />
           <img
             src="/images/logo-NoBg.png"
-            className="w-16 h-7 object-contain mb-1"
+            className="w-[70px] h-[30px] object-contain"
             alt="Logo"
           />
-          <div className="text-[6px] text-gray-400 font-semibold uppercase tracking-wider">
+          <div className="text-[7px] text-gray-400 font-bold uppercase tracking-[0.5px]">
             Nit 902073610-8
           </div>
-          <div className="text-[10px] font-bold text-gray-700">
+          <div className="text-[11px] font-bold text-gray-700 mt-0.5">
             {data.numeroConsecutivo}
           </div>
           {data.fecha && (
-            <div className="text-[7px] text-gray-500 mt-0.5">{data.fecha}</div>
+            <div className="text-[8px] text-gray-500 mt-0.5">{data.fecha}</div>
           )}
-          <div className="text-[11px] font-bold text-gray-800 mt-2">
+          <div className="text-[14px] font-bold text-gray-800 mt-1.5 text-center">
             Certificado Gemológico
           </div>
-          <div className="text-[7px] text-gray-500 leading-relaxed mt-1">
+          <div className="text-[8px] text-gray-500 leading-[1.5] mt-0.5 text-center">
             Reporte de análisis profesional para su gema certificada.
           </div>
         </div>
-        <div className="border-t border-gray-100 pt-2 mt-2">
+        <div className="border-t border-gray-200 pt-1.5 w-full">
           {hasLogos ? (
-            <div className="flex gap-2 items-center justify-center">
+            <div className="flex gap-2 items-center justify-center mt-1">
               {logos.map((logo, i) => (
                 <div
                   key={i}
-                  className="w-9 h-5 bg-gray-50 rounded border border-gray-200 flex items-center justify-center overflow-hidden"
+                  className="w-10 h-[22px] bg-gray-50 rounded-sm border border-gray-200 flex items-center justify-center overflow-hidden"
                 >
                   {logo ? (
                     <img
@@ -76,7 +76,7 @@ function PageOne({ data, productImage, logos }) {
               No logos added
             </div>
           )}
-          <div className="text-[5px] text-gray-300 italic text-center mt-1">
+          <div className="text-[6px] text-gray-300 italic text-center">
             Certified by Lumath jewelers
           </div>
         </div>
@@ -86,16 +86,21 @@ function PageOne({ data, productImage, logos }) {
 
       {/* Column 2: Image */}
       <div className="brochure-col flex flex-col items-center justify-center">
-        <ColumnHeader label="Imagen" />
-        <div className="w-28 h-28 bg-gray-50 rounded-md border border-gray-200 flex items-center justify-center overflow-hidden">
+        <ColumnHeader label="Imagen Del Producto" />
+        <div className="relative w-[200px] h-[200px] flex items-center justify-center mb-[160px]">
+          <img
+            src="/images/circulo_verde.png"
+            className="absolute inset-0 w-full h-full object-contain"
+            alt="Circle"
+          />
           {productImage ? (
             <img
               src={productImage}
-              className="max-h-full max-w-full object-contain p-1.5"
+              className="relative z-10 max-h-[100px] max-w-[100px] object-contain"
               alt="Product"
             />
           ) : (
-            <span className="material-symbols-outlined text-3xl text-gray-300">
+            <span className="relative z-10 material-symbols-outlined text-3xl text-gray-300">
               image
             </span>
           )}
@@ -105,24 +110,24 @@ function PageOne({ data, productImage, logos }) {
       <div className="col-divider" />
 
       {/* Column 3: Specs */}
-      <div className="brochure-col flex flex-col">
+      <div className="brochure-col flex flex-col items-center justify-center gap-[3px]">
         <ColumnHeader label="Especificaciones" />
-        <div className="text-[7px] font-semibold text-gray-500 uppercase tracking-wider mb-1">
+        <div className="text-[6px] font-semibold text-gray-400 uppercase tracking-[0.5px] mb-1 text-center">
           Descripción
         </div>
-        <p className="text-[7px] text-gray-500 leading-relaxed text-justify line-clamp-4 mb-1">
+        <p className="text-[7px] text-gray-500 leading-[1.5] text-justify mb-4 w-full">
           {data.description}
         </p>
-        <div className="text-[7px] font-semibold text-gray-500 uppercase tracking-wider mb-1">
+        <div className="text-[6px] font-semibold text-gray-400 uppercase tracking-[0.5px] mb-1 text-center">
           Especificaciones técnicas
         </div>
-        <div className="grid grid-cols-2 gap-x-1.5 gap-y-0.5">
+        <div className="grid grid-cols-2 w-full">
           {specFields.map((field) => (
-            <div key={field.key} className="border-b border-gray-100 py-0.5">
-              <div className="text-[5px] text-gray-400 uppercase tracking-wider">
+            <div key={field.key} className="border-b border-gray-100 py-0.5 pr-[6px] text-center">
+              <div className="text-[6px] text-gray-400 uppercase tracking-[0.5px] mb-1">
                 {field.label}
               </div>
-              <div className="text-[7px] font-semibold text-gray-800 truncate">
+              <div className="text-[8px] font-bold text-gray-800">
                 {data[field.key]}
               </div>
             </div>
@@ -137,27 +142,27 @@ function PageTwo() {
   return (
     <div className="brochure-page bg-white shadow-md font-sans overflow-hidden flex">
       {/* Column 4: Terms Part 1 */}
-      <div className="brochure-col flex flex-col">
+      <div className="brochure-col flex flex-col items-center gap-[5px]">
         <ColumnHeader label="Términos" />
-        <div className="text-[9px] font-bold text-gray-800 text-center mb-1.5">
+        <div className="text-[10px] font-bold text-gray-800 text-center mb-1">
           Información importante y limitaciones
         </div>
-        <div className="text-[6px] text-gray-600 leading-relaxed text-justify flex flex-col gap-1">
-          <p>
+        <div className="text-[6.5px] text-gray-600 leading-[1.5] text-justify flex flex-col gap-0.5 w-full">
+          <p className="mb-0.5">
             El Instituto Colombiano de Gemología (ICG), aporta su conocimiento
             técnico servicio de sus usuarios, realizando una revisión gemológica
             integral en c proceso de emisión de reporte gemológico. Su concepto
             es el resultado de la implementación de técnicas, investigaciones y
             equipos de laboratorio con los más altos estándares de calidad.
           </p>
-          <p>
+          <p className="mb-0.5">
             El Instituto Colombiano de Gemología (ICG), únicamente responderá
             por el reporte de cada gema y por tanto no será responsable de
             ninguna transacción que se realice con la misma o de las
             obligaciones que se deriven de las transacciones comerciales o
             civiles que realice el propietario o tenedor.
           </p>
-          <p>
+          <p className="mb-0.5">
             El Instituto Colombiano de Gemología (ICG), emite el reporte
             gemológico de las gemas conforme a los resultados arrojados por el
             análisis técnico al momento del proceso de revisión, por tanto, no
@@ -171,17 +176,17 @@ function PageTwo() {
       <div className="col-divider" />
 
       {/* Column 5: Terms Part 2 */}
-      <div className="brochure-col flex flex-col">
+      <div className="brochure-col flex flex-col items-center gap-[5px]">
         <ColumnHeader label="Términos" />
-        <div className="text-[6px] text-gray-600 leading-relaxed text-justify flex flex-col gap-1">
-          <p>
+        <div className="text-[6.5px] text-gray-600 leading-[1.5] text-justify flex flex-col gap-0.5 w-full">
+          <p className="mb-0.5">
             El Instituto Colombiano de Gemología (ICG) se reserva el uso de su
             imagen, los reportes, nombre, marcas y logotipos, los cuales
             únicamente podrán usarse para referirse al proceso de análisis
             Gemológico o a cada reporte expedido. Cualquier uso o referencia
             adicional requerirá autorización expresa y por escrito.
           </p>
-          <p>
+          <p className="mb-0.5">
             El Instituto Colombiano de Gemología (ICG) incluye en cada reporte
             un número de identificación y código QR que contiene la información
             de cada reporte y podrá ser consultada en cualquier momento. El
@@ -189,20 +194,20 @@ function PageTwo() {
             verifique la información contenida en el reporte con la que resulta
             de la lectura del código QR.
           </p>
-          <p>
+          <p className="mb-0.5">
             En el evento que la información no coincida, el interesado podrá
             solicitar la respectiva información mediante correo electrónico
             enviado a la dirección info@icgemlab.com a la cual se le dará
             respuesta en un término no mayor a tres (3) días hábiles, para
             determinar cuál es la información real.
           </p>
-          <p>
+          <p className="mb-0.5">
             El Instituto Colombiano de Gemología (ICG) no responderá por la
             imposibilidad de lectura del código QR si se han realizado
             alteraciones posteriores a la impresión, tampoco responderá por la
             alteración de la información contenida en cada reporte impreso.
           </p>
-          <p>
+          <p className="mb-0.5">
             El Instituto Colombiano de Gemología (ICG), únicamente responderá
             por la información que se encuentra debidamente consignada en sus
             sistemas de información. El Instituto Colombiano de Gemología (ICG),
@@ -216,17 +221,17 @@ function PageTwo() {
       <div className="col-divider" />
 
       {/* Column 6: Contact */}
-      <div className="brochure-col flex flex-col justify-between">
-        <div>
+      <div className="brochure-col flex flex-col justify-between items-center text-center">
+        <div className="w-full">
           <ColumnHeader label="Contacto" />
-          <div className="border-t border-gray-100 pt-2">
-            <div className="text-[8px] font-bold text-gray-800 uppercase tracking-wide mb-1">
+          <div className="border-t border-gray-200 pt-1.5 mt-1.5">
+            <div className="text-[8px] font-bold text-gray-800 uppercase tracking-[0.5px] mb-[3px]">
               Gemological Report
             </div>
-            <div className="text-[8px] font-bold text-gray-800 uppercase tracking-wide mb-1.5">
+            <div className="text-[8px] font-bold text-gray-800 uppercase tracking-[0.5px] mb-[3px]">
               Reporte Gemológico
             </div>
-            <div className="text-[7px] text-gray-500 leading-relaxed">
+            <div className="text-[7px] text-gray-500 leading-[1.6]">
               <p>
                 Avd. Jiménez No 7-25 Ofic. 609 y 801 Edificio Henry Faux -
                 Bogotá, Colombia
@@ -239,18 +244,18 @@ function PageTwo() {
           </div>
         </div>
 
-        <div className="border-t border-gray-100 pt-2 mt-2">
+        <div className="border-t border-gray-200 pt-1.5 mt-1.5 w-full flex flex-col items-center">
           <img
             src="/images/logo-NoBg.png"
-            className="w-12 h-5 object-contain mb-0.5"
+            className="w-[50px] h-[22px] object-contain mb-0.5"
             alt="Logo"
           />
-          <div className="text-[6px] text-gray-400 font-semibold uppercase tracking-wider">
+          <div className="text-[7px] text-gray-400 font-bold uppercase tracking-[0.5px]">
             Nit 902073610-8
           </div>
         </div>
 
-        <p className="text-[5px] text-gray-400 italic text-center leading-relaxed mt-2">
+        <p className="text-[6px] text-gray-400 italic text-center leading-[1.4] mt-[10px]">
           ICG Instituto Colombiano de Gemología. Reporte gemológico emitido por
           el ICG. Este documento es de uso exclusivo del propietario o tenedor
           legítimo de la gema descrita.

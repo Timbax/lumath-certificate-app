@@ -31,6 +31,7 @@ const styles = StyleSheet.create({
     width: "33.33%",
     paddingHorizontal: 14,
     paddingVertical: 16,
+    alignItems: "center",
   },
   columnDivider: {
     width: 0,
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
     borderStyle: "dashed",
   },
 
-  /* --- Column Header (appears at top of each column) --- */
+  /* --- Column Header --- */
   columnHeader: {
     fontSize: 8,
     fontWeight: "bold",
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     letterSpacing: 1,
     textAlign: "center",
-    marginBottom: 6,
+    marginBottom: 3,
   },
 
   /* --- Common --- */
@@ -62,17 +63,20 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textTransform: "uppercase",
     letterSpacing: 0.5,
+    textAlign: "center",
   },
   consecutiveText: {
     fontSize: 11,
     fontWeight: "bold",
     color: "#374151",
     marginTop: 2,
+    textAlign: "center",
   },
   dateText: {
     fontSize: 8,
     color: "#6b7280",
     marginTop: 2,
+    textAlign: "center",
   },
   label: {
     fontSize: 6,
@@ -80,6 +84,7 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     letterSpacing: 0.5,
     marginBottom: 1,
+    textAlign: "center",
   },
   bodyText: {
     fontSize: 7,
@@ -93,27 +98,33 @@ const styles = StyleSheet.create({
   coverPanel: {
     flex: 1,
     justifyContent: "space-between",
+    alignItems: "center",
   },
   coverTop: {
     gap: 4,
+    alignItems: "center",
+    marginTop: 150,
   },
   coverTitle: {
     fontSize: 14,
     fontWeight: "bold",
     color: "#1f2937",
     marginTop: 6,
+    textAlign: "center",
   },
   coverSubtitle: {
     fontSize: 8,
     color: "#6b7280",
     lineHeight: 1.5,
     marginTop: 2,
+    textAlign: "center",
   },
   coverBottom: {
     borderTopWidth: 0.5,
     borderTopColor: "#e5e7eb",
     paddingTop: 6,
     alignItems: "center",
+    width: "100%",
   },
   coverFooter: {
     fontSize: 6,
@@ -124,37 +135,41 @@ const styles = StyleSheet.create({
 
   /* --- Page 1 Column 2: Image --- */
   imagePanel: {
+    flex: 1,
     alignItems: "center",
     justifyContent: "center",
   },
-  productImageBox: {
-    width: 130,
-    height: 130,
-    borderWidth: 1,
-    borderColor: "#e5e7eb",
-    borderRadius: 6,
-    backgroundColor: "#f9fafb",
+  imageContainer: {
+    width: 200,
+    height: 200,
     alignItems: "center",
     justifyContent: "center",
-    overflow: "hidden",
+    marginBottom: 160,
+  },
+  circleBackground: {
+    width: 300,
+    height: 300,
+    objectFit: "contain",
+    marginTop: 25,
   },
   productImage: {
-    maxWidth: "85%",
-    maxHeight: "85%",
+    width: 100,
+    height: 100,
     objectFit: "contain",
-  },
-  imagePlaceholder: {
-    color: "#d1d5db",
-    fontSize: 18,
+    marginTop: -200,
   },
 
   /* --- Page 1 Column 3: Specs --- */
   specsPanel: {
+    flex: 1,
     gap: 3,
+    alignItems: "center",
+    justifyContent: "center",
   },
   specGrid: {
     flexDirection: "row",
     flexWrap: "wrap",
+    width: "100%",
   },
   specItem: {
     width: "50%",
@@ -162,16 +177,20 @@ const styles = StyleSheet.create({
     borderBottomColor: "#f3f4f6",
     paddingVertical: 2,
     paddingRight: 6,
+    alignItems: "center",
   },
   specValue: {
     fontSize: 8,
     fontWeight: "bold",
     color: "#1f2937",
+    textAlign: "center",
   },
 
   /* --- Page 2 Columns: Terms --- */
   termsColumn: {
+    flex: 1,
     gap: 5,
+    alignItems: "center",
   },
   termsTitle: {
     fontSize: 10,
@@ -186,14 +205,22 @@ const styles = StyleSheet.create({
     lineHeight: 1.5,
     textAlign: "justify",
     marginBottom: 2,
+    width: "100%",
   },
 
   /* --- Page 2 Column 3: Contact --- */
+  contactColumn: {
+    flex: 1,
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
   contactSection: {
     borderTopWidth: 0.5,
     borderTopColor: "#e5e7eb",
     paddingTop: 6,
     marginTop: 6,
+    alignItems: "center",
+    width: "100%",
   },
   contactTitle: {
     fontSize: 8,
@@ -202,11 +229,13 @@ const styles = StyleSheet.create({
     marginBottom: 3,
     textTransform: "uppercase",
     letterSpacing: 0.5,
+    textAlign: "center",
   },
   contactText: {
     fontSize: 7,
     color: "#6b7280",
     lineHeight: 1.6,
+    textAlign: "center",
   },
   disclaimer: {
     fontSize: 6,
@@ -217,7 +246,7 @@ const styles = StyleSheet.create({
     lineHeight: 1.4,
   },
 
-  /* --- Logos Row (inside cover) --- */
+  /* --- Logos Row --- */
   logosRow: {
     flexDirection: "row",
     gap: 8,
@@ -298,12 +327,14 @@ export default function PdfDocument({ data, productImage, logos }) {
 
         {/* Column 2: Product Image */}
         <View style={[styles.column, styles.imagePanel]}>
-          <Text style={styles.columnHeader}>Imagen</Text>
-          <View style={styles.productImageBox}>
-            {productImage ? (
+          <Text style={styles.columnHeader}>Imagen Del Producto</Text>
+          <View style={styles.imageContainer}>
+            <Image
+              style={styles.circleBackground}
+              src="/images/circulo_verde.png"
+            />
+            {productImage && (
               <Image style={styles.productImage} src={productImage} />
-            ) : (
-              <Text style={styles.imagePlaceholder}>No Image</Text>
             )}
           </View>
         </View>
@@ -316,7 +347,9 @@ export default function PdfDocument({ data, productImage, logos }) {
           <Text style={[styles.label, { fontSize: 7, marginBottom: 2 }]}>
             Descripción
           </Text>
-          <Text style={styles.bodyText}>{data.description}</Text>
+          <Text style={[styles.bodyText, { width: "100%" }]}>
+            {data.description}
+          </Text>
 
           <Text style={[styles.label, { fontSize: 7, marginBottom: 2 }]}>
             Especificaciones técnicas
@@ -410,19 +443,21 @@ export default function PdfDocument({ data, productImage, logos }) {
         <View style={styles.columnDivider} />
 
         {/* Column 6: Contact + Disclaimer */}
-        <View style={styles.column}>
-          <Text style={styles.columnHeader}>Contacto</Text>
-          <View style={styles.contactSection}>
-            <Text style={styles.contactTitle}>Gemological Report</Text>
-            <Text style={styles.contactTitle}>Reporte Gemológico</Text>
-            <Text style={styles.contactText}>
-              Avd. Jiménez No 7-25 Ofic. 609 y 801 Edificio Henry Faux - Bogotá,
-              Colombia
-            </Text>
-            <Text style={styles.contactText}>Tel: (57)(601) 478 7272</Text>
-            <Text style={styles.contactText}>Cel: (57) 321 450 6410</Text>
-            <Text style={styles.contactText}>info@icgemlab.com</Text>
-            <Text style={styles.contactText}>www.icgemlab.com</Text>
+        <View style={[styles.column, styles.contactColumn]}>
+          <View style={{ width: "100%" }}>
+            <Text style={styles.columnHeader}>Contacto</Text>
+            <View style={styles.contactSection}>
+              <Text style={styles.contactTitle}>Gemological Report</Text>
+              <Text style={styles.contactTitle}>Reporte Gemológico</Text>
+              <Text style={styles.contactText}>
+                Avd. Jiménez No 7-25 Ofic. 609 y 801 Edificio Henry Faux -
+                Bogotá, Colombia
+              </Text>
+              <Text style={styles.contactText}>Tel: (57)(601) 478 7272</Text>
+              <Text style={styles.contactText}>Cel: (57) 321 450 6410</Text>
+              <Text style={styles.contactText}>info@icgemlab.com</Text>
+              <Text style={styles.contactText}>www.icgemlab.com</Text>
+            </View>
           </View>
 
           <View style={styles.contactSection}>
