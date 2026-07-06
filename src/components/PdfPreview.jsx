@@ -26,11 +26,11 @@ function PageOne({ data, productImage, logos }) {
     <div className="brochure-page bg-white shadow-md font-sans overflow-hidden flex">
       {/* Column 1: Cover */}
       <div className="brochure-col flex flex-col justify-between items-center text-center">
-        <div className="flex flex-col items-center mt-[150px] gap-1">
+        <div className="flex flex-col items-center mt-[100px] gap-1">
           <ColumnHeader label="Portada" />
           <img
             src="/images/logo-NoBg.png"
-            className="w-[70px] h-[30px] object-contain"
+            className="w-[140px] h-[60px] object-contain"
             alt="Logo"
           />
           <div className="text-[7px] text-gray-400 font-bold uppercase tracking-[0.5px]">
@@ -123,7 +123,10 @@ function PageOne({ data, productImage, logos }) {
         </div>
         <div className="grid grid-cols-2 w-full">
           {specFields.map((field) => (
-            <div key={field.key} className="border-b border-gray-100 py-0.5 pr-[6px] text-center">
+            <div
+              key={field.key}
+              className="border-b border-gray-100 py-0.5 pr-[6px] text-center"
+            >
               <div className="text-[6px] text-gray-400 uppercase tracking-[0.5px] mb-1">
                 {field.label}
               </div>
@@ -226,20 +229,15 @@ function PageTwo() {
           <ColumnHeader label="Contacto" />
           <div className="border-t border-gray-200 pt-1.5 mt-1.5">
             <div className="text-[8px] font-bold text-gray-800 uppercase tracking-[0.5px] mb-[3px]">
-              Gemological Report
-            </div>
-            <div className="text-[8px] font-bold text-gray-800 uppercase tracking-[0.5px] mb-[3px]">
               Reporte Gemológico
             </div>
             <div className="text-[7px] text-gray-500 leading-[1.6]">
               <p>
-                Avd. Jiménez No 7-25 Ofic. 609 y 801 Edificio Henry Faux -
-                Bogotá, Colombia
+                Calle 30, Cra. 8B 74, Calle Larga, Centro comercial Getsemaní -
+                Cartagena, Colombia
               </p>
-              <p>Tel: (57)(601) 478 7272</p>
-              <p>Cel: (57) 321 450 6410</p>
-              <p>info@icgemlab.com</p>
-              <p>www.icgemlab.com</p>
+              <p>Cel: (+57) 304 2076 725</p>
+              <p>lumathjoyeros@gmail.com</p>
             </div>
           </div>
         </div>
@@ -247,7 +245,7 @@ function PageTwo() {
         <div className="border-t border-gray-200 pt-1.5 mt-1.5 w-full flex flex-col items-center">
           <img
             src="/images/logo-NoBg.png"
-            className="w-[50px] h-[22px] object-contain mb-0.5"
+            className="w-[120px] h-[50px] object-contain mb-0.5"
             alt="Logo"
           />
           <div className="text-[7px] text-gray-400 font-bold uppercase tracking-[0.5px]">
