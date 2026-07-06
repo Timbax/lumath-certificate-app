@@ -453,13 +453,11 @@ export default function PdfDocument({ data, productImage, logos }) {
             <View style={styles.contactSection}>
               <Text style={styles.contactTitle}>Reporte Gemológico</Text>
               <Text style={styles.contactText}>
-                Avd. Jiménez No 7-25 Ofic. 609 y 801 Edificio Henry Faux -
-                Bogotá, Colombia
+                Calle 30, Cra. 8B 74, Calle Larga, Centro comercial Getsemaní -
+                Cartagena, Colombia
               </Text>
-              <Text style={styles.contactText}>Tel: (57)(601) 478 7272</Text>
-              <Text style={styles.contactText}>Cel: (57) 321 450 6410</Text>
-              <Text style={styles.contactText}>info@icgemlab.com</Text>
-              <Text style={styles.contactText}>www.icgemlab.com</Text>
+              <Text style={styles.contactText}>Cel: (+57) 304 2076 725</Text>
+              <Text style={styles.contactText}>lumathjoyeros@gmail.com</Text>
             </View>
           </View>
 
