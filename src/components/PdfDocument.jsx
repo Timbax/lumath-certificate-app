@@ -53,8 +53,8 @@ const styles = StyleSheet.create({
 
   /* --- Common --- */
   topLogo: {
-    width: 70,
-    height: 30,
+    width: 140,
+    height: 60,
     objectFit: "contain",
   },
   nitText: {
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   coverTop: {
     gap: 4,
     alignItems: "center",
-    marginTop: 150,
+    marginTop: 100,
   },
   coverTitle: {
     fontSize: 14,
@@ -165,6 +165,8 @@ const styles = StyleSheet.create({
     gap: 3,
     alignItems: "center",
     justifyContent: "center",
+    marginTop: 50,
+    marginBottom: 150,
   },
   specGrid: {
     flexDirection: "row",
@@ -342,7 +344,9 @@ export default function PdfDocument({ data, productImage, logos }) {
         <View style={styles.columnDivider} />
 
         {/* Column 3: Description + Specifications */}
-        <View style={[styles.column, styles.specsPanel]}>
+        <View
+          style={[styles.column, styles.specsPanel, { paddingVertical: 0 }]}
+        >
           <Text style={styles.columnHeader}>Especificaciones</Text>
           <Text style={[styles.label, { fontSize: 7, marginBottom: 2 }]}>
             Descripción
@@ -447,7 +451,6 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={{ width: "100%" }}>
             <Text style={styles.columnHeader}>Contacto</Text>
             <View style={styles.contactSection}>
-              <Text style={styles.contactTitle}>Gemological Report</Text>
               <Text style={styles.contactTitle}>Reporte Gemológico</Text>
               <Text style={styles.contactText}>
                 Avd. Jiménez No 7-25 Ofic. 609 y 801 Edificio Henry Faux -
@@ -462,7 +465,7 @@ export default function PdfDocument({ data, productImage, logos }) {
 
           <View style={styles.contactSection}>
             <Image
-              style={[styles.topLogo, { width: 50, height: 22 }]}
+              style={[styles.topLogo, { width: 120, height: 50 }]}
               src="/images/logo-NoBg.png"
             />
             <Text style={styles.nitText}>Nit 902073610-8</Text>
