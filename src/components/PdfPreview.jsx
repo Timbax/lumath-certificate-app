@@ -20,7 +20,7 @@ function ColumnHeader({ label }) {
 }
 
 function PageOne({ data, productImage, logos }) {
-  const hasLogos = logos?.some(Boolean);
+  const hasLogos = Boolean(logos);
 
   return (
     <div className="brochure-page bg-white shadow-md font-sans overflow-hidden flex">
@@ -29,7 +29,7 @@ function PageOne({ data, productImage, logos }) {
         <div className="flex flex-col items-center mt-[100px] gap-1">
           <img
             src="/images/logo-NoBg.png"
-            className="w-[140px] h-[60px] object-contain"
+            className="w-[200px] h-[85px] object-contain"
             alt="Logo"
           />
           <div className="text-[7px] text-gray-400 font-bold uppercase tracking-[0.5px]">
@@ -50,29 +50,16 @@ function PageOne({ data, productImage, logos }) {
         </div>
         <div className="border-t border-gray-200 pt-1.5 w-full">
           {hasLogos ? (
-            <div className="flex gap-2 items-center justify-center mt-1">
-              {logos.map((logo, i) => (
-                <div
-                  key={i}
-                  className="w-10 h-[22px] bg-gray-50 rounded-sm border border-gray-200 flex items-center justify-center overflow-hidden"
-                >
-                  {logo ? (
-                    <img
-                      src={logo}
-                      className="max-h-full max-w-full object-contain p-0.5"
-                      alt={`Logo ${i + 1}`}
-                    />
-                  ) : (
-                    <span className="text-[5px] text-gray-300">
-                      Logo {i + 1}
-                    </span>
-                  )}
-                </div>
-              ))}
+            <div className="w-40 h-[60px] bg-gray-50 rounded-sm border border-gray-200 flex items-center justify-center overflow-hidden mt-1 mx-auto">
+              <img
+                src={logos}
+                className="max-h-full max-w-full object-contain p-0.5"
+                alt="Logo"
+              />
             </div>
           ) : (
             <div className="text-[6px] text-gray-400 italic text-center">
-              No logos added
+              No logo added
             </div>
           )}
           <div className="text-[6px] text-gray-300 italic text-center">
@@ -257,7 +244,7 @@ function PageTwo() {
         <div className="border-t border-gray-200 pt-1.5 mt-1.5 w-full flex flex-col items-center">
           <img
             src="/images/logo-NoBg.png"
-            className="w-[120px] h-[50px] object-contain mb-0.5"
+            className="w-[170px] h-[70px] object-contain mb-0.5"
             alt="Logo"
           />
           <div className="text-[7px] text-gray-400 font-bold uppercase tracking-[0.5px]">

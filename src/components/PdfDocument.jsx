@@ -65,8 +65,8 @@ const styles = StyleSheet.create({
 
   /* --- Common --- */
   topLogo: {
-    width: 140,
-    height: 60,
+    width: 200,
+    height: 85,
     objectFit: "contain",
   },
   nitText: {
@@ -269,8 +269,8 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   logoBox: {
-    width: 40,
-    height: 22,
+    width: 120,
+    height: 88,
     borderWidth: 0.5,
     borderColor: "#e5e7eb",
     borderRadius: 2,
@@ -298,7 +298,7 @@ const styles = StyleSheet.create({
 });
 
 export default function PdfDocument({ data, productImage, logos }) {
-  const hasLogos = logos?.some(Boolean);
+  const hasLogos = Boolean(logos);
 
   return (
     <Document>
@@ -311,7 +311,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen.png"
+              src="/images/backgroundGreen2.png"
             />
           </View>
           <View style={styles.coverTop}>
@@ -326,19 +326,11 @@ export default function PdfDocument({ data, productImage, logos }) {
           </View>
           <View style={styles.coverBottom}>
             {hasLogos ? (
-              <View style={styles.logosRow}>
-                {logos.map((logo, i) => (
-                  <View key={i} style={styles.logoBox}>
-                    {logo ? (
-                      <Image style={styles.logoImage} src={logo} />
-                    ) : (
-                      <Text style={styles.logoPlaceholder}>Logo {i + 1}</Text>
-                    )}
-                  </View>
-                ))}
+              <View style={styles.logoBox}>
+                <Image style={styles.logoImage} src={logos} />
               </View>
             ) : (
-              <Text style={styles.noLogosText}>No logos added</Text>
+              <Text style={styles.noLogosText}>No logo added</Text>
             )}
             <Text style={styles.coverFooter}>Certified by Lumath jewelers</Text>
           </View>
@@ -353,7 +345,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen.png"
+              src="/images/backgroundGreen2.png"
             />
           </View>
           <Text style={styles.columnHeader}>Imagen Del Producto</Text>
@@ -381,7 +373,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen.png"
+              src="/images/backgroundGreen2.png"
             />
           </View>
           <Text style={styles.columnHeader}>Especificaciones</Text>
@@ -415,7 +407,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen.png"
+              src="/images/backgroundGreen2.png"
             />
           </View>
           <Text style={styles.columnHeader}>Términos</Text>
@@ -464,7 +456,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen.png"
+              src="/images/backgroundGreen2.png"
             />
           </View>
           <Text style={styles.columnHeader}>Términos</Text>
@@ -519,7 +511,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen.png"
+              src="/images/backgroundGreen2.png"
             />
           </View>
           <View style={{ width: "100%" }}>
@@ -537,7 +529,7 @@ export default function PdfDocument({ data, productImage, logos }) {
 
           <View style={styles.contactSection}>
             <Image
-              style={[styles.topLogo, { width: 120, height: 50 }]}
+              style={[styles.topLogo, { width: 170, height: 70 }]}
               src="/images/logo-NoBg.png"
             />
             <Text style={styles.nitText}>Nit 902073610-8</Text>

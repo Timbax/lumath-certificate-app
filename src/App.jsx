@@ -23,7 +23,7 @@ const defaultData = {
 function App() {
   const [previewData, setPreviewData] = useState(defaultData);
   const [productImage, setProductImage] = useState(null);
-  const [logos, setLogos] = useState([null, null, null]);
+  const [logos, setLogos] = useState(null);
   const [showPreview, setShowPreview] = useState(false);
   const previewRef = useRef(null);
 
