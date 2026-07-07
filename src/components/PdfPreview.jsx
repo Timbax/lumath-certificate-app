@@ -27,7 +27,6 @@ function PageOne({ data, productImage, logos }) {
       {/* Column 1: Cover */}
       <div className="brochure-col flex flex-col justify-between items-center text-center">
         <div className="flex flex-col items-center mt-[100px] gap-1">
-          <ColumnHeader label="Portada" />
           <img
             src="/images/logo-NoBg.png"
             className="w-[140px] h-[60px] object-contain"
@@ -46,7 +45,7 @@ function PageOne({ data, productImage, logos }) {
             Certificado Gemológico
           </div>
           <div className="text-[8px] text-gray-500 leading-[1.5] mt-0.5 text-center">
-            Reporte de análisis profesional para su gema certificada.
+            Reporte de análisis profesional.
           </div>
         </div>
         <div className="border-t border-gray-200 pt-1.5 w-full">
@@ -152,26 +151,35 @@ function PageTwo() {
         </div>
         <div className="text-[6.5px] text-gray-600 leading-[1.5] text-justify flex flex-col gap-0.5 w-full">
           <p className="mb-0.5">
-            El Instituto Colombiano de Gemología (ICG), aporta su conocimiento
-            técnico servicio de sus usuarios, realizando una revisión gemológica
-            integral en c proceso de emisión de reporte gemológico. Su concepto
-            es el resultado de la implementación de técnicas, investigaciones y
-            equipos de laboratorio con los más altos estándares de calidad.
+            Lumath Joyeros certifica de manera expresa y bajo principios de
+            transparencia comercial la autenticidad de todas sus piezas. Cada
+            artículo comercializado está diseñado y fabricado utilizando
+            esmeraldas 100% colombianas, reconocidas a nivel mundial por su
+            calidad, brillo y pureza.
           </p>
           <p className="mb-0.5">
-            El Instituto Colombiano de Gemología (ICG), únicamente responderá
-            por el reporte de cada gema y por tanto no será responsable de
-            ninguna transacción que se realice con la misma o de las
-            obligaciones que se deriven de las transacciones comerciales o
-            civiles que realice el propietario o tenedor.
+            La empresa asume la responsabilidad legal total sobre la idoneidad
+            de las joyas, piedras preciosas y semipreciosas incorporadas en cada
+            una de sus creaciones, garantizando que corresponden exactamente a
+            las especificaciones técnicas informadas al comprador al momento de
+            la venta.
           </p>
           <p className="mb-0.5">
-            El Instituto Colombiano de Gemología (ICG), emite el reporte
-            gemológico de las gemas conforme a los resultados arrojados por el
-            análisis técnico al momento del proceso de revisión, por tanto, no
-            se hace responsable de las alteraciones, modificaciones o
-            adulteraciones causadas a la gema de manera provocada, natural, o
-            accidental posterior a la expedición.
+            Política de Garantía Comercial (Ampliada) De conformidad con el
+            artículo 7° de la Ley 1480 de 2011 (Estatuto del Consumidor de
+            Colombia), la marca establece los siguientes lineamientos para su
+            cobertura de garantía: Término de la cobertura: Lumath Joyeros
+            otorga un beneficio superior al promedio del mercado nacional,
+            ofreciendo un periodo de tres (3) años de garantía contados a partir
+            de la fecha de entrega material del producto. Esta cobertura cobija
+            cualquier defecto relacionado con la manufactura, fallas técnicas en
+            los engastes o irregularidades estructurales del metal. Exoneración
+            de responsabilidad: En concordancia con las causales legales de
+            exoneración en Colombia, la garantía no cubrirá aquellos daños
+            derivados de: Accidentes o caídas. Uso inapropiado o desgaste
+            natural por el paso del tiempo. Descuidos, falta de mantenimiento
+            básico o manipulación/reparación por laboratorios y talleres ajenos
+            a Lumath Joyeros.
           </p>
         </div>
       </div>
@@ -183,40 +191,44 @@ function PageTwo() {
         <ColumnHeader label="Términos" />
         <div className="text-[6.5px] text-gray-600 leading-[1.5] text-justify flex flex-col gap-0.5 w-full">
           <p className="mb-0.5">
-            El Instituto Colombiano de Gemología (ICG) se reserva el uso de su
-            imagen, los reportes, nombre, marcas y logotipos, los cuales
-            únicamente podrán usarse para referirse al proceso de análisis
-            Gemológico o a cada reporte expedido. Cualquier uso o referencia
-            adicional requerirá autorización expresa y por escrito.
+            Términos y Condiciones Generales (Normativa Colombiana) Para
+            complementar la operación comercial en el país y blindar legalmente
+            la relación con el consumidor, se anexan las siguientes cláusulas
+            obligatorias de Términos y Condiciones:
           </p>
           <p className="mb-0.5">
-            El Instituto Colombiano de Gemología (ICG) incluye en cada reporte
-            un número de identificación y código QR que contiene la información
-            de cada reporte y podrá ser consultada en cualquier momento. El
-            Instituto Colombiano de Gemología (ICG) recomienda que siempre se
-            verifique la información contenida en el reporte con la que resulta
-            de la lectura del código QR.
+            A. Derecho de Retracto (Ventas No Presenciales / E-commerce) En caso
+            de compras realizadas a través de canales digitales, se aplicará de
+            manera estricta el Artículo 47 de la Ley 1480 de 2011. El consumidor
+            dispondrá de un término máximo de cinco (5) días hábiles (contados a
+            partir de la entrega del producto) para ejercer su derecho de
+            retracto. El cliente deberá devolver la joya por los mismos medios y
+            en las mismas condiciones en que la recibió (sin señales de uso, con
+            etiquetas y empaques originales). Los costos de transporte y
+            mensajería serán asumidos en su totalidad por el comprador.
           </p>
           <p className="mb-0.5">
-            En el evento que la información no coincida, el interesado podrá
-            solicitar la respectiva información mediante correo electrónico
-            enviado a la dirección info@icgemlab.com a la cual se le dará
-            respuesta en un término no mayor a tres (3) días hábiles, para
-            determinar cuál es la información real.
+            B. Procedimiento para Efectividad de la Garantía Si una pieza
+            presenta un fallo de fabricación dentro de los tres años de
+            vigencia, el cliente podrá radicar su reclamación de forma verbal,
+            escrita o electrónica. Lumath Joyeros contará con un término legal
+            de quince (15) días hábiles para emitir un diagnóstico técnico y dar
+            respuesta formal. De encontrarse un defecto de fabricación, se
+            procederá prioritariamente a la reparación gratuita de la joya. En
+            caso de que la pieza no admita reparación, se procederá a su
+            reposición por una de iguales características o a la devolución del
+            dinero, a elección del consumidor.
           </p>
           <p className="mb-0.5">
-            El Instituto Colombiano de Gemología (ICG) no responderá por la
-            imposibilidad de lectura del código QR si se han realizado
-            alteraciones posteriores a la impresión, tampoco responderá por la
-            alteración de la información contenida en cada reporte impreso.
-          </p>
-          <p className="mb-0.5">
-            El Instituto Colombiano de Gemología (ICG), únicamente responderá
-            por la información que se encuentra debidamente consignada en sus
-            sistemas de información. El Instituto Colombiano de Gemología (ICG),
-            pone de presente que los resultados presentes en el reporte pueden
-            diferir de acuerdo a implementación de métodos, estándares, normas o
-            criterios distintos a los aplicados en el análisis.
+            C. Guía de Cuidado de las Piezas (Información de Consumo) El
+            Estatuto del Consumidor exige suministrar las instrucciones de uso
+            para evitar el deterioro acelerado de los bienes. Por lo tanto, el
+            cliente acepta que, al adquirir una pieza con esmeraldas y metales
+            preciosos, debe evitar el contacto de la joya con agentes químicos
+            corrosivos (como perfumes, cremas, cloro de piscinas o lociones) y
+            evitar someterla a impactos fuertes, entendiendo que las piedras
+            preciosas pueden fracturarse ante microimpactos accidentales, lo
+            cual anula la cobertura de la garantía.
           </p>
         </div>
       </div>
