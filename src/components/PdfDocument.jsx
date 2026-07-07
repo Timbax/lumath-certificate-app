@@ -11,7 +11,6 @@ const specFields = [
   { label: "Color", key: "color" },
   { label: "Origen", key: "origen" },
   { label: "Cantidad", key: "cantidad" },
-  { label: "Tipo", key: "tipo" },
   { label: "N° de Gemas", key: "numeroGemas" },
   { label: "Peso", key: "peso" },
   { label: "Talla", key: "talla" },
@@ -385,6 +384,11 @@ export default function PdfDocument({ data, productImage, logos }) {
           </Text>
 
           <Text style={[styles.label, { fontSize: 7, marginBottom: 2 }]}>
+            Tipo
+          </Text>
+          <Text style={[styles.bodyText, { width: "100%" }]}>{data.tipo}</Text>
+
+          <Text style={[styles.label, { fontSize: 7, marginBottom: 2 }]}>
             Especificaciones técnicas
           </Text>
           <View style={styles.specGrid}>
@@ -445,6 +449,38 @@ export default function PdfDocument({ data, productImage, logos }) {
             básico o manipulación/reparación por laboratorios y talleres ajenos
             a Lumath Joyeros.
           </Text>
+          <Text style={styles.termsTitle}>
+            Important Information and Limitations
+          </Text>
+          <Text style={styles.termsParagraph}>
+            Lumath Joyeros expressly certifies, in accordance with the
+            principles of commercial transparency, the authenticity of all its
+            pieces. Each item sold is designed and manufactured using 100%
+            Colombian emeralds, recognized worldwide for their quality,
+            brilliance, and purity.
+          </Text>
+          <Text style={styles.termsParagraph}>
+            The company assumes full legal responsibility for the suitability of
+            the jewelry, precious stones, and semiprecious stones incorporated
+            into each of its creations, guaranteeing that they correspond
+            exactly to the technical specifications provided to the buyer at the
+            time of sale.
+          </Text>
+          <Text style={styles.termsParagraph}>
+            Commercial Warranty Policy (Extended) In accordance with Article 7
+            of Law 1480 of 2011 (Colombian Consumer Protection Act), the brand
+            establishes the following guidelines for its warranty coverage: Term
+            of coverage: Lumath Joyeros provides a benefit that exceeds the
+            national market average, offering a three (3) year warranty period
+            beginning on the date of physical delivery of the product. This
+            coverage applies to any manufacturing defects, technical failures in
+            the settings, or structural irregularities in the metal. Disclaimer
+            of Liability: In accordance with the legal grounds for exemption in
+            Colombia, the warranty will not cover damage resulting from:
+            Accidents or drops. Improper use or natural wear and tear over time.
+            Negligence, lack of basic maintenance, or handling/repairs by
+            laboratories and workshops other than Lumath Joyeros.
+          </Text>
         </View>
 
         <View style={styles.columnDivider} />
@@ -490,15 +526,32 @@ export default function PdfDocument({ data, productImage, logos }) {
             dinero, a elección del consumidor.
           </Text>
           <Text style={styles.termsParagraph}>
-            C. Guía de Cuidado de las Piezas (Información de Consumo) El
-            Estatuto del Consumidor exige suministrar las instrucciones de uso
-            para evitar el deterioro acelerado de los bienes. Por lo tanto, el
-            cliente acepta que, al adquirir una pieza con esmeraldas y metales
-            preciosos, debe evitar el contacto de la joya con agentes químicos
-            corrosivos (como perfumes, cremas, cloro de piscinas o lociones) y
-            evitar someterla a impactos fuertes, entendiendo que las piedras
-            preciosas pueden fracturarse ante microimpactos accidentales, lo
-            cual anula la cobertura de la garantía.
+            General Terms and Conditions (Colombian Regulations) To support
+            business operations in the country and legally safeguard the
+            relationship with consumers, the following mandatory Terms and
+            Conditions clauses are attached:
+          </Text>
+          <Text style={styles.termsParagraph}>
+            A. Right of Withdrawal (Non-Face-to-Face Sales / E-commerce) In the
+            case of purchases made through digital channels, Article 47 of Law
+            1480 of 2011 shall be strictly applied. The consumer shall have a
+            maximum period of five (5) business days (counted from the date of
+            delivery of the product) to exercise their right of withdrawal. The
+            customer must return the jewelry by the same means and in the same
+            condition in which it was received (with no signs of use, with
+            original tags and packaging). Shipping and delivery costs will be
+            borne entirely by the buyer.
+          </Text>
+          <Text style={styles.termsParagraph}>
+            B. Warranty Claim Procedure If a piece has a manufacturing defect
+            within the three-year warranty period, the customer may file a claim
+            verbally, in writing, or electronically. Lumath Joyeros will have a
+            legal period of fifteen (15) business days to issue a technical
+            assessment and provide a formal response. If a manufacturing defect
+            is found, the jewelry will be repaired free of charge as a matter of
+            priority. In the event that the piece cannot be repaired, it will be
+            replaced with one of equal characteristics or the purchase price
+            will be refunded, at the consumer’s discretion.
           </Text>
         </View>
 
@@ -536,9 +589,9 @@ export default function PdfDocument({ data, productImage, logos }) {
           </View>
 
           <Text style={styles.disclaimer}>
-            ICG Instituto Colombiano de Gemología. Reporte gemológico emitido
-            por el ICG. Este documento es de uso exclusivo del propietario o
-            tenedor legítimo de la gema descrita.
+            Reporte gemológico emitido por Lumath Joyeros. Este documento es de
+            uso exclusivo del propietario o tenedor legítimo de la gema
+            descrita.
           </Text>
         </View>
       </Page>

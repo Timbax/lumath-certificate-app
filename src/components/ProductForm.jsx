@@ -3,7 +3,6 @@ import FormField from "./FormField";
 import DropZone from "./DropZone";
 
 const emptyForm = {
-  id: "",
   numeroConsecutivo: "",
   fecha: "",
   color: "",
@@ -45,7 +44,6 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
     setTimeout(() => {
       onGenerate(
         {
-          id: form.id || "ID",
           numeroConsecutivo: form.numeroConsecutivo || "N° de Consecutivo",
           fecha: form.fecha || new Date().toISOString().split("T")[0],
           color: form.color || "Color",
@@ -88,13 +86,6 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
               Identificación
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-md">
-              <FormField
-                label="Id"
-                placeholder="Ej: LJ-10001"
-                value={form.id}
-                onChange={handleChange}
-                id="id"
-              />
               <div className="flex flex-col gap-xs">
                 <FormField
                   label="Número de consecutivo"
@@ -110,14 +101,14 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
                   </span>
                 )}
               </div>
+              <FormField
+                label="Fecha"
+                type="date"
+                value={form.fecha}
+                onChange={handleChange}
+                id="fecha"
+              />
             </div>
-            <FormField
-              label="Fecha"
-              type="date"
-              value={form.fecha}
-              onChange={handleChange}
-              id="fecha"
-            />
           </div>
 
           <hr className="border-outline-variant/20" />
@@ -148,13 +139,6 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
                 value={form.cantidad}
                 onChange={handleChange}
                 id="cantidad"
-              />
-              <FormField
-                label="Tipo"
-                placeholder="Esmeralda Natural"
-                value={form.tipo}
-                onChange={handleChange}
-                id="tipo"
               />
             </div>
           </div>
@@ -209,6 +193,16 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
             value={form.description}
             onChange={handleChange}
             id="description"
+          />
+
+          <FormField
+            label="Tipo"
+            type="textarea"
+            placeholder="Esmeralda Natural"
+            rows={2}
+            value={form.tipo}
+            onChange={handleChange}
+            id="tipo"
           />
 
           <hr className="border-outline-variant/20" />
