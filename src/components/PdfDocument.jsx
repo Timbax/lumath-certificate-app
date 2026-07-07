@@ -315,14 +315,13 @@ export default function PdfDocument({ data, productImage, logos }) {
             />
           </View>
           <View style={styles.coverTop}>
-            <Text style={styles.columnHeader}>Portada</Text>
             <Image style={styles.topLogo} src="/images/logo-NoBg.png" />
             <Text style={styles.nitText}>Nit 902073610-8</Text>
             <Text style={styles.consecutiveText}>{data.numeroConsecutivo}</Text>
             {data.fecha && <Text style={styles.dateText}>{data.fecha}</Text>}
             <Text style={styles.coverTitle}>Certificado Gemológico</Text>
             <Text style={styles.coverSubtitle}>
-              Reporte de análisis profesional para su gema certificada.
+              Reporte de análisis profesional .
             </Text>
           </View>
           <View style={styles.coverBottom}>
