@@ -266,6 +266,7 @@ h2 {
   flex: 1;
   padding: 16px 14px;
   min-width: 0;
+  background-image: url("./images/backgroundGreen2.png");
 }
 
 .col-divider {
