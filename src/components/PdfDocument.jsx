@@ -33,6 +33,19 @@ const styles = StyleSheet.create({
     paddingVertical: 16,
     alignItems: "center",
   },
+  columnBg: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    overflow: "hidden",
+  },
+  columnBgImg: {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+  },
   columnDivider: {
     width: 0,
     borderLeftWidth: 0.5,
@@ -293,7 +306,15 @@ export default function PdfDocument({ data, productImage, logos }) {
       {/* PAGE 1 - Front: Cover | Image | Specs */}
       <Page size="A4" orientation="landscape" style={styles.page}>
         {/* Column 1: Cover */}
-        <View style={[styles.column, styles.coverPanel]}>
+        <View
+          style={[styles.column, styles.coverPanel, { overflow: "hidden" }]}
+        >
+          <View style={styles.columnBg}>
+            <Image
+              style={styles.columnBgImg}
+              src="/images/backgroundGreen2.png"
+            />
+          </View>
           <View style={styles.coverTop}>
             <Text style={styles.columnHeader}>Portada</Text>
             <Image style={styles.topLogo} src="/images/logo-NoBg.png" />
@@ -328,7 +349,15 @@ export default function PdfDocument({ data, productImage, logos }) {
         <View style={styles.columnDivider} />
 
         {/* Column 2: Product Image */}
-        <View style={[styles.column, styles.imagePanel]}>
+        <View
+          style={[styles.column, styles.imagePanel, { overflow: "hidden" }]}
+        >
+          <View style={styles.columnBg}>
+            <Image
+              style={styles.columnBgImg}
+              src="/images/backgroundGreen2.png"
+            />
+          </View>
           <Text style={styles.columnHeader}>Imagen Del Producto</Text>
           <View style={styles.imageContainer}>
             <Image
@@ -345,8 +374,18 @@ export default function PdfDocument({ data, productImage, logos }) {
 
         {/* Column 3: Description + Specifications */}
         <View
-          style={[styles.column, styles.specsPanel, { paddingVertical: 0 }]}
+          style={[
+            styles.column,
+            styles.specsPanel,
+            { paddingVertical: 0, overflow: "hidden" },
+          ]}
         >
+          <View style={styles.columnBg}>
+            <Image
+              style={styles.columnBgImg}
+              src="/images/backgroundGreen2.png"
+            />
+          </View>
           <Text style={styles.columnHeader}>Especificaciones</Text>
           <Text style={[styles.label, { fontSize: 7, marginBottom: 2 }]}>
             Descripción
@@ -372,7 +411,15 @@ export default function PdfDocument({ data, productImage, logos }) {
       {/* PAGE 2 - Back: Terms | Terms | Contact */}
       <Page size="A4" orientation="landscape" style={styles.page}>
         {/* Column 4: Terms Part 1 */}
-        <View style={[styles.column, styles.termsColumn]}>
+        <View
+          style={[styles.column, styles.termsColumn, { overflow: "hidden" }]}
+        >
+          <View style={styles.columnBg}>
+            <Image
+              style={styles.columnBgImg}
+              src="/images/backgroundGreen2.png"
+            />
+          </View>
           <Text style={styles.columnHeader}>Términos</Text>
           <Text style={styles.termsTitle}>
             Información importante y limitaciones
@@ -404,7 +451,15 @@ export default function PdfDocument({ data, productImage, logos }) {
         <View style={styles.columnDivider} />
 
         {/* Column 5: Terms Part 2 */}
-        <View style={[styles.column, styles.termsColumn]}>
+        <View
+          style={[styles.column, styles.termsColumn, { overflow: "hidden" }]}
+        >
+          <View style={styles.columnBg}>
+            <Image
+              style={styles.columnBgImg}
+              src="/images/backgroundGreen2.png"
+            />
+          </View>
           <Text style={styles.columnHeader}>Términos</Text>
           <Text style={styles.termsParagraph}>
             El Instituto Colombiano de Gemología (ICG) se reserva el uso de su
@@ -447,19 +502,25 @@ export default function PdfDocument({ data, productImage, logos }) {
         <View style={styles.columnDivider} />
 
         {/* Column 6: Contact + Disclaimer */}
-        <View style={[styles.column, styles.contactColumn]}>
+        <View
+          style={[styles.column, styles.contactColumn, { overflow: "hidden" }]}
+        >
+          <View style={styles.columnBg}>
+            <Image
+              style={styles.columnBgImg}
+              src="/images/backgroundGreen2.png"
+            />
+          </View>
           <View style={{ width: "100%" }}>
             <Text style={styles.columnHeader}>Contacto</Text>
             <View style={styles.contactSection}>
               <Text style={styles.contactTitle}>Reporte Gemológico</Text>
               <Text style={styles.contactText}>
-                Avd. Jiménez No 7-25 Ofic. 609 y 801 Edificio Henry Faux -
-                Bogotá, Colombia
+                Calle 30, Cra. 8B 74, Calle Larga, Centro comercial Getsemaní -
+                Cartagena, Colombia
               </Text>
-              <Text style={styles.contactText}>Tel: (57)(601) 478 7272</Text>
-              <Text style={styles.contactText}>Cel: (57) 321 450 6410</Text>
-              <Text style={styles.contactText}>info@icgemlab.com</Text>
-              <Text style={styles.contactText}>www.icgemlab.com</Text>
+              <Text style={styles.contactText}>Cel: (+57) 304 2076 725</Text>
+              <Text style={styles.contactText}>lumathjoyeros@gmail.com</Text>
             </View>
           </View>
 
