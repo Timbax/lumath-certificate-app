@@ -42,9 +42,8 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   columnBgImg: {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
+    width: "200%",
+    height: "200%",
   },
   columnDivider: {
     width: 0,
@@ -178,8 +177,8 @@ const styles = StyleSheet.create({
     gap: 3,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 50,
-    marginBottom: 150,
+    paddingTop: 50,
+    paddingBottom: 150,
   },
   specGrid: {
     flexDirection: "row",
@@ -312,18 +311,17 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen2.png"
+              src="/images/backgroundGreen.png"
             />
           </View>
           <View style={styles.coverTop}>
-            <Text style={styles.columnHeader}>Portada</Text>
             <Image style={styles.topLogo} src="/images/logo-NoBg.png" />
             <Text style={styles.nitText}>Nit 902073610-8</Text>
             <Text style={styles.consecutiveText}>{data.numeroConsecutivo}</Text>
             {data.fecha && <Text style={styles.dateText}>{data.fecha}</Text>}
             <Text style={styles.coverTitle}>Certificado Gemológico</Text>
             <Text style={styles.coverSubtitle}>
-              Reporte de análisis profesional para su gema certificada.
+              Reporte de análisis profesional .
             </Text>
           </View>
           <View style={styles.coverBottom}>
@@ -355,7 +353,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen2.png"
+              src="/images/backgroundGreen.png"
             />
           </View>
           <Text style={styles.columnHeader}>Imagen Del Producto</Text>
@@ -383,7 +381,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen2.png"
+              src="/images/backgroundGreen.png"
             />
           </View>
           <Text style={styles.columnHeader}>Especificaciones</Text>
@@ -417,7 +415,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen2.png"
+              src="/images/backgroundGreen.png"
             />
           </View>
           <Text style={styles.columnHeader}>Términos</Text>
@@ -457,7 +455,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen2.png"
+              src="/images/backgroundGreen.png"
             />
           </View>
           <Text style={styles.columnHeader}>Términos</Text>
@@ -508,7 +506,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen2.png"
+              src="/images/backgroundGreen.png"
             />
           </View>
           <View style={{ width: "100%" }}>
