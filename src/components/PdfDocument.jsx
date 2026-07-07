@@ -311,7 +311,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen.png"
+              src="/images/backgroundGreen2.png"
             />
           </View>
           <View style={styles.coverTop}>
@@ -353,7 +353,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen.png"
+              src="/images/backgroundGreen2.png"
             />
           </View>
           <Text style={styles.columnHeader}>Imagen Del Producto</Text>
@@ -381,7 +381,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen.png"
+              src="/images/backgroundGreen2.png"
             />
           </View>
           <Text style={styles.columnHeader}>Especificaciones</Text>
@@ -415,7 +415,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen.png"
+              src="/images/backgroundGreen2.png"
             />
           </View>
           <Text style={styles.columnHeader}>Términos</Text>
@@ -464,7 +464,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen.png"
+              src="/images/backgroundGreen2.png"
             />
           </View>
           <Text style={styles.columnHeader}>Términos</Text>
@@ -519,7 +519,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen.png"
+              src="/images/backgroundGreen2.png"
             />
           </View>
           <View style={{ width: "100%" }}>
