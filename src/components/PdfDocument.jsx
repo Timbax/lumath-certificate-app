@@ -42,9 +42,8 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   columnBgImg: {
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
+    width: "200%",
+    height: "200%",
   },
   columnDivider: {
     width: 0,
@@ -178,8 +177,8 @@ const styles = StyleSheet.create({
     gap: 3,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 50,
-    marginBottom: 150,
+    paddingTop: 50,
+    paddingBottom: 150,
   },
   specGrid: {
     flexDirection: "row",
@@ -312,7 +311,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen2.png"
+              src="/images/backgroundGreen.png"
             />
           </View>
           <View style={styles.coverTop}>
@@ -355,7 +354,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen2.png"
+              src="/images/backgroundGreen.png"
             />
           </View>
           <Text style={styles.columnHeader}>Imagen Del Producto</Text>
@@ -383,7 +382,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen2.png"
+              src="/images/backgroundGreen.png"
             />
           </View>
           <Text style={styles.columnHeader}>Especificaciones</Text>
@@ -417,7 +416,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen2.png"
+              src="/images/backgroundGreen.png"
             />
           </View>
           <Text style={styles.columnHeader}>Términos</Text>
@@ -457,7 +456,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen2.png"
+              src="/images/backgroundGreen.png"
             />
           </View>
           <Text style={styles.columnHeader}>Términos</Text>
@@ -508,7 +507,7 @@ export default function PdfDocument({ data, productImage, logos }) {
           <View style={styles.columnBg}>
             <Image
               style={styles.columnBgImg}
-              src="/images/backgroundGreen2.png"
+              src="/images/backgroundGreen.png"
             />
           </View>
           <View style={{ width: "100%" }}>
