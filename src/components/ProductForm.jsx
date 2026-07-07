@@ -21,7 +21,7 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
   const [form, setForm] = useState(emptyForm);
   const [loading, setLoading] = useState(false);
   const [productImage, setProductImage] = useState(null);
-  const [logos, setLogos] = useState([null, null, null]);
+  const [logos, setLogos] = useState(null);
   const [dropzoneKey, setDropzoneKey] = useState(0);
   const [lastConsecutivo, setLastConsecutivo] = useState(() => {
     return localStorage.getItem("ultimoConsecutivo") || "";
@@ -32,12 +32,8 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
     setForm((prev) => ({ ...prev, [id]: value }));
   }
 
-  function handleLogoSelect(index, dataUrl) {
-    setLogos((prev) => {
-      const next = [...prev];
-      next[index] = dataUrl;
-      return next;
-    });
+  function handleLogoSelect(dataUrl) {
+    setLogos(dataUrl);
   }
 
   function handleGenerate() {
@@ -68,7 +64,7 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
       setLoading(false);
       setForm(emptyForm);
       setProductImage(null);
-      setLogos([null, null, null]);
+      setLogos(null);
       setDropzoneKey((k) => k + 1);
     }, 800);
   }
@@ -233,22 +229,12 @@ export default function ProductForm({ onGenerate, pdfReady, onDownloadPdf }) {
             </div>
             <div className="flex flex-col gap-base">
               <h3 className="font-label-lg text-label-lg text-on-surface-variant uppercase tracking-wider">
-                Logos Adicionales (Hasta 3)
+                Agregar QR
               </h3>
-              <div className="grid grid-cols-3 gap-sm">
-                <DropZone
-                  key={`logo-0-${dropzoneKey}`}
-                  onFileSelect={(dataUrl) => handleLogoSelect(0, dataUrl)}
-                />
-                <DropZone
-                  key={`logo-1-${dropzoneKey}`}
-                  onFileSelect={(dataUrl) => handleLogoSelect(1, dataUrl)}
-                />
-                <DropZone
-                  key={`logo-2-${dropzoneKey}`}
-                  onFileSelect={(dataUrl) => handleLogoSelect(2, dataUrl)}
-                />
-              </div>
+              <DropZone
+                key={`logo-${dropzoneKey}`}
+                onFileSelect={handleLogoSelect}
+              />
             </div>
           </div>
 
